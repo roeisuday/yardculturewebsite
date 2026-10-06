@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>You're In | Yard Culture SoCal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+<style>
+.ty{padding:56px 0 90px}.ty h1{font-size:clamp(36px,5vw,58px);margin-bottom:12px}
+.next{display:grid;gap:14px;margin:28px 0;text-align:left;max-width:640px}
+.next div{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.cal{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:12px}
+.cal iframe{width:100%;height:760px;border:0;display:block}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="index.html" class="logo">Yard Culture <span>SoCal</span></a></div></nav>
+<main class="ty"><div class="wrap center">
+  <div class="eyebrow">Spot reserved</div>
+  <h1 id="hi">You're in. Your free 3D design is on the way.</h1>
+  <p class="lead" id="sub">Grab a consultation time below while you're here. It's the fastest way to lock in your spot this month.</p>
+  <div id="calWrap"></div>
+  <div class="next" style="margin:34px auto">
+    <div><span class="num" style="margin:0">1</span><div><b>Watch your phone</b><br><small style="color:var(--muted)">We'll text you within 1 business day to ask for a few photos of your yard.</small></div></div>
+    <div><span class="num" style="margin:0">2</span><div><b>We build your 3D design</b><br><small style="color:var(--muted)">Your yard, mapped into zones for how your family lives.</small></div></div>
+    <div><span class="num" style="margin:0">3</span><div><b>We walk it together at your home</b><br><small style="color:var(--muted)">Free consultation. Keep the design either way.</small></div></div>
+  </div>
+  <p>While you wait, see more yards on <a class="js-ig" href="#" target="_blank" rel="noopener" style="color:var(--gold2);font-weight:700">Instagram</a>.</p>
+</div></main>
+<script>
+(function(){
+  var C = window.YC || {}, L = {};
+  try { L = JSON.parse(sessionStorage.getItem("yc_lead") || "{}"); } catch (e) {}
+  if (L.first_name) document.getElementById("hi").textContent = "You're in, " + L.first_name + ". Your free 3D design is on the way.";
+  document.querySelector(".js-ig").href = C.INSTAGRAM || "#";
+  if (C.GHL_CALENDAR_URL) {
+    var u = new URL(C.GHL_CALENDAR_URL);
+    if (L.first_name) u.searchParams.set("first_name", L.first_name);
+    if (L.email) u.searchParams.set("email", L.email);
+    if (L.phone) u.searchParams.set("phone", L.phone);
+    document.getElementById("calWrap").innerHTML = '<div class="cal"><iframe src="' + u.toString() + '" title="Book your consultation" loading="lazy"></iframe></div>';
+  } else {
+    document.getElementById("sub").textContent = "We'll reach out within 1 business day to schedule your free in-home consultation.";
+  }
+  if (C.META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq("init", C.META_PIXEL_ID); fbq("track", "PageView");
+    // fire Lead only once per submission
+    if (L.email && !sessionStorage.getItem("yc_lead_fired")) { fbq("track", "Lead", { content_name: "Free 3D Design" }); sessionStorage.setItem("yc_lead_fired", "1"); }
+  }
+})();
+</script>
+</body>
+</html>
