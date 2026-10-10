@@ -52,7 +52,7 @@
   var T = C.TESTIMONIALS || [], tw = $("#tWrap");
   var esc = function (s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; };
   if (T.length) {
-    $("#tEyebrow").textContent = "From Valley homeowners";
+    $("#tEyebrow").textContent = "From SoCal homeowners";
     $("#tTitle").textContent = "Don't take our word for it.";
     tw.className = "tgrid";
     tw.style.textAlign = "left";
@@ -61,7 +61,7 @@
     }).join("");
   } else {
     tw.innerHTML = '<div class="founding" style="text-align:left"><div><h3>The Founding Client offer</h3>' +
-      "<p>We're building our portfolio in the Valley, and we'd rather show you real yards than stock photos. Our first homeowners get extra attention in exchange for letting us share their transformation.</p>" +
+      "<p>We're building our portfolio in Southern California, and we'd rather show you real yards than stock photos. Our first homeowners get extra attention in exchange for letting us share their transformation.</p>" +
       "<ul><li>Priority scheduling for your design and consultation</li><li>An extra design revision round</li><li>A professional before-and-after shoot of your finished yard</li></ul></div>" +
       '<div class="fbox"><div class="big">' + (left || "—") + '</div><p style="margin:8px 0 18px">free design spots left for ' + month + '</p><a class="btn block" href="#get">Become a Founding Client</a></div></div>';
   }

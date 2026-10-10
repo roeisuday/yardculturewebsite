@@ -4,8 +4,8 @@
    ========================================================= */
 window.YC = {
   BRAND: "Yard Culture SoCal",
-  PHONE: "",                 // e.g. "(818) 555-0123" — leave "" to hide the phone button
-  EMAIL: "",                 // e.g. "hello@yardculturesocal.com"
+  PHONE: "(213) 787-5224",                 // e.g. "(818) 555-0123" — leave "" to hide the phone button
+  EMAIL: "info@yardculturesocal.com",                 // e.g. "hello@yardculturesocal.com"
   INSTAGRAM: "https://instagram.com/yardculture.socal",
   LICENSE: "",               // e.g. "CSLB Lic. #1234567" — shown in the footer if filled
 
@@ -13,18 +13,18 @@ window.YC = {
      How many free 3D designs you can actually deliver this month,
      and how many are still open. Update SPOTS_LEFT as you book. */
   SPOTS_TOTAL: 10,
-  SPOTS_LEFT: 6,
+  SPOTS_LEFT: 2,
   SPOTS_LABEL: "free 3D design spots left for",   // "{left} of {total} free 3D design spots left for October"
 
   /* ---- LEAD ROUTING ----
      GHL > Automation > Workflows > Trigger "Inbound Webhook" > copy URL.
      Best: put it in Cloudflare as an env variable GHL_WEBHOOK_URL (see README).
      Fallback: paste it here too, so leads still arrive if the function isn't deployed. */
-  GHL_WEBHOOK_URL: "",
+  GHL_WEBHOOK_URL: "https://services.leadconnectorhq.com/hooks/nNSlvSxkLQoOV4UYOmqz/webhook-trigger/e008990c-320c-42ef-bbb7-af1b98d858a1",
 
   /* GHL > Calendars > your calendar > Share > copy the booking link.
      Shown on the thank-you page so leads can pick a consultation time right away. */
-  GHL_CALENDAR_URL: "",
+  GHL_CALENDAR_URL: "https://api.leadconnectorhq.com/widget/bookings/free-backyard-consultation",
 
   /* Meta Pixel ID (Events Manager). Fires PageView + Lead. */
   META_PIXEL_ID: "",
