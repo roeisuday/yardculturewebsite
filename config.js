@@ -39,11 +39,11 @@ window.YC = {
   /* ---- DESIGN CONCEPT GALLERY (homepage + booked page) ----
      AI design concepts, always labeled "Design concept". Swap in real project photos as you finish jobs. */
   GALLERY: [
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_349ef23a-2db8-475e-b5e8-6870754afd89.png", cap: "Encino · lattice patio cover, grill island, lawn and fire pit", wide: true },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_d3ebac63-7e0d-4908-b23e-6829b2a4b7cc.png", cap: "Woodland Hills · ranch home with patio cover, pavers and fire pit" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_526c3c90-6267-4778-a7e0-4a99193fb84f.png", cap: "Northridge · family yard with patio cover, play lawn and fire table" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_08d29e64-7068-495f-8192-3ae859313631.png", cap: "Sherman Oaks · pergola dining and a sunken fire pit" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_74cf265f-9388-4a1d-a202-15406dfe7da5.png", cap: "Studio City · Spanish-style home, wood patio cover and fire pit" }
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_349ef23a-2db8-475e-b5e8-6870754afd89_min.webp", cap: "Encino · lattice patio cover, grill island, lawn and fire pit", wide: true },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_d3ebac63-7e0d-4908-b23e-6829b2a4b7cc_min.webp", cap: "Woodland Hills · ranch home with patio cover, pavers and fire pit" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_526c3c90-6267-4778-a7e0-4a99193fb84f_min.webp", cap: "Northridge · family yard with patio cover, play lawn and fire table" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_08d29e64-7068-495f-8192-3ae859313631_min.webp", cap: "Sherman Oaks · pergola dining and a sunken fire pit" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_74cf265f-9388-4a1d-a202-15406dfe7da5_min.webp", cap: "Studio City · Spanish-style home, wood patio cover and fire pit" }
   ],
 
   /* ---- TRACK RECORD (only fill with a TRUE number) ----
@@ -66,9 +66,9 @@ window.YC = {
      These point to your Higgsfield images. For permanence, download them into /img
      and change these to "img/before.jpg" etc. */
   IMG: {
-    before: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_013819_9d430a58-d47e-4727-990a-19b0faa6b053.png",
-    after:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_013955_f41405d4-bcf9-4679-b0b7-ef0c4f86989b.png",
-    zones:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261004_204500_6b67eee6-0929-4470-91d8-1dfd6836cbe5.png",
-    night:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_001759_8466e631-b4b2-45a5-95c0-a17598ec763d.png"
+    before: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_013819_9d430a58-d47e-4727-990a-19b0faa6b053_min.webp",
+    after:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_013955_f41405d4-bcf9-4679-b0b7-ef0c4f86989b_min.webp",
+    zones:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261004_204500_6b67eee6-0929-4470-91d8-1dfd6836cbe5_min.webp",
+    night:  "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261005_001759_8466e631-b4b2-45a5-95c0-a17598ec763d_min.webp"
   }
 };
