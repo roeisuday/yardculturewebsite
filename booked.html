@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>You're Booked | Yard Culture SoCal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // If the booking widget redirected inside an iframe (thank-you page), break out to the full page.
+  try { if (window.top !== window.self) window.top.location.href = location.href; } catch (e) {}
+</script>
+<script src="config.js"></script>
+<style>
+.bk{padding:52px 0 30px}
+.bk h1{font-size:clamp(38px,5.4vw,62px);margin-bottom:12px}
+.okc{width:64px;height:64px;border-radius:50%;background:var(--ok);display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 12px 30px -12px rgba(47,125,79,.8)}
+.okc svg{width:30px;height:30px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;text-align:left}
+.panel h3{margin-bottom:14px}
+.tl{display:grid;gap:14px}
+.tl>div{display:flex;gap:14px;align-items:flex-start}.tl .num{flex:none}
+.tl small{color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.check{list-style:none;display:grid;gap:10px}
+.check label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-weight:500}
+.check input{width:20px;height:20px;accent-color:var(--gold);margin-top:2px;flex:none}
+.check small{display:block;color:var(--muted);font-weight:400}
+.photos{background:var(--ink);color:#fff;border-radius:22px;padding:28px;display:flex;gap:22px;align-items:center;justify-content:space-between;margin-top:22px;text-align:left}
+.photos p{color:#cfc8bd;margin-top:6px}
+.photos .btn{flex:none}
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;text-align:left}
+.promise .box b{display:block;font-family:"DM Serif Display",serif;font-size:21px;font-weight:400;margin-bottom:4px}
+.promise .box small{color:var(--muted)}
+.resched{margin-top:28px;color:var(--muted)}
+.resched a{color:var(--gold2);font-weight:700}
+.social{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+@media(max-width:820px){.two,.promise{grid-template-columns:1fr}.photos{flex-direction:column;align-items:stretch;text-align:center}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="index.html" class="logo">Yard Culture <span>SoCal</span></a>
+  <div class="navr"><a class="btn ghost sm js-phone" href="#" hidden>Call</a></div></div></nav>
+
+<main>
+<section class="bk"><div class="wrap center">
+  <div class="okc"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+  <div class="eyebrow">Visit confirmed</div>
+  <h1 id="hi">You're booked. We'll see you soon.</h1>
+  <p class="lead">Your free in-home design visit is on the calendar. Here's what happens next, and how to get the most out of it.</p>
+
+  <div class="two">
+    <div class="panel">
+      <h3>What happens next</h3>
+      <div class="tl">
+        <div><span class="num" style="margin:0">1</span><div><b>Confirmation now</b><br><small>You'll get a text and email with your visit time.</small></div></div>
+        <div><span class="num" style="margin:0">2</span><div><b>Reminder the day before</b><br><small>Reply to it if anything changes.</small></div></div>
+        <div><span class="num" style="margin:0">3</span><div><b class="js-who">We walk your yard with you</b><br><small>About 45 minutes. We measure, listen to how you want to use the space, and talk through ideas.</small></div></div>
+        <div><span class="num" style="margin:0">4</span><div><b>Your 3D design</b><br><small>We map your yard into zones and build a 3D design you can actually picture. It's yours to keep.</small></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Before we come out</h3>
+      <ul class="check">
+        <li><label><input type="checkbox"><span>Everyone who decides is home<small>Your partner's ideas matter. It's much easier to plan together.</small></span></label></li>
+        <li><label><input type="checkbox"><span>A rough budget range in mind<small>Even a ballpark lets us design something you'd actually build.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Your wish list<small>Dining, fire pit, shade, play space, kitchen, privacy. Anything goes.</small></span></label></li>
+        <li><label><input type="checkbox"><span>HOA rules, if you have an HOA<small>So the design works the first time.</small></span></label></li>
+        <li><label><input type="checkbox"><span>Clear access to the backyard<small>Gate unlocked, pets inside.</small></span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="photos">
+    <div><h3 style="color:#fff">Want a head start? Text us 2–3 photos of your yard.</h3>
+      <p>We'll look before we arrive, so the visit goes straight to ideas for your space.</p></div>
+    <a class="btn js-sms" href="#">Text Photos</a>
+  </div>
+</div></section>
+
+<section class="dark center" style="padding:70px 0"><div class="wrap">
+  <div class="eyebrow">What you'll get</div>
+  <h2>Designs like the one we'll make for <span class="gold">your</span> yard.</h2>
+  <p class="lead">Every yard is different. These show the level of detail you'll see before anything gets built.</p>
+  <div class="gallery" id="gal"></div>
+  <p style="font-size:13px;color:#a9a196;margin-top:16px">Design concepts shown for illustration. Not photos of completed projects.</p>
+</div></section>
+
+<section class="center" style="padding:70px 0"><div class="wrap">
+  <div class="eyebrow">Our promise</div>
+  <h2>No pressure. Just a better plan.</h2>
+  <div class="promise">
+    <div class="box"><b>Zero pressure</b><small>No hard sell at your kitchen table. We design, you decide.</small></div>
+    <div class="box"><b>Keep the design</b><small>It's yours either way, whether or not you build with us.</small></div>
+    <div class="box"><b>Straight answers</b><small>What's possible, what matters most, and what can wait.</small></div>
+    <div class="box"><b>On time</b><small>If we're running late, we'll text you before your window.</small></div>
+  </div>
+  <p class="resched">Need to change the time? Just <a class="js-sms2" href="#">text us</a><span class="js-or"></span>. No problem at all.</p>
+  <div class="social">
+    <a class="btn ghost sm js-ig" href="#" target="_blank" rel="noopener">Follow on Instagram</a>
+    <a class="btn ghost sm js-group" href="#" target="_blank" rel="noopener" hidden>Join our SoCal backyard group</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><b>Yard Culture SoCal</b>Consultation-first backyard design for Los Angeles and Orange County homeowners.<br><span class="js-license"></span></div>
+  <div><b>Contact</b><span class="js-contact"></span><a href="privacy.html">Privacy Policy</a></div>
+</div></footer>
+
+<script>
+(function(){
+  var C = window.YC || {}, L = {};
+  var $ = function (s) { return document.querySelector(s); }, $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  try { L = JSON.parse(sessionStorage.getItem("yc_lead") || "{}"); } catch (e) {}
+  var q = new URLSearchParams(location.search);
+  var first = q.get("first_name") || L.first_name;
+  if (first) $("#hi").textContent = "You're booked, " + first + ". We'll see you soon.";
+  if (C.CONSULTANT_NAME) $(".js-who").textContent = C.CONSULTANT_NAME + " walks your yard with you";
+
+  var tel = (C.PHONE || "").replace(/[^\d+]/g, "");
+  var smsBody = encodeURIComponent("Hi, I just booked my free backyard design visit. Here are photos of my yard:");
+  var sms = tel ? "sms:" + tel + "?&body=" + smsBody : "#";
+  $(".js-sms").href = sms; $(".js-sms2").href = tel ? "sms:" + tel : "#";
+  if (tel) { $(".js-or").innerHTML = ' or call <a href="tel:' + tel + '">' + C.PHONE + "</a>"; }
+  $$(".js-phone").forEach(function (a) { if (tel) { a.href = "tel:" + tel; a.hidden = false; a.textContent = C.PHONE; } });
+  $(".js-contact").innerHTML = (C.PHONE ? '<a href="tel:' + tel + '">' + C.PHONE + "</a><br>" : "") + (C.EMAIL ? '<a href="mailto:' + C.EMAIL + '">' + C.EMAIL + "</a><br>" : "");
+  $(".js-license").textContent = C.LICENSE || "";
+  $(".js-ig").href = C.INSTAGRAM || "#";
+  if (C.FB_GROUP_URL) { $(".js-group").href = C.FB_GROUP_URL; $(".js-group").hidden = false; }
+
+  var G = (C.GALLERY || []).length ? C.GALLERY : [C.IMG && C.IMG.after, C.IMG && C.IMG.zones, C.IMG && C.IMG.night].filter(Boolean).map(function (s) { return { src: s, cap: "" }; });
+  $("#gal").innerHTML = G.map(function (g) {
+    return '<figure' + (g.wide ? ' class="wide"' : '') + '><img src="' + g.src + '" alt="' + (g.cap || "Backyard design concept") + '" loading="lazy"><span class="concept">DESIGN CONCEPT</span>' + (g.cap ? "<figcaption>" + g.cap + "</figcaption>" : "") + "</figure>";
+  }).join("");
+
+  if (C.META_PIXEL_ID) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq("init", C.META_PIXEL_ID); fbq("track", "PageView");
+    var once = false; try { once = sessionStorage.getItem("yc_sched_fired"); } catch (e) {}
+    if (!once) { fbq("track", "Schedule", { content_name: "Free In-Home Design Visit" }); try { sessionStorage.setItem("yc_sched_fired", "1"); } catch (e) {} }
+  }
+})();
+</script>
+</body>
+</html>

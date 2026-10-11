@@ -26,8 +26,25 @@ window.YC = {
      Shown on the thank-you page so leads can pick a consultation time right away. */
   GHL_CALENDAR_URL: "https://api.leadconnectorhq.com/widget/bookings/free-backyard-consultation",
 
-  /* Meta Pixel ID (Events Manager). Fires PageView + Lead. */
+  /* Meta Pixel ID (Events Manager). Fires PageView, Lead (thank-you page) and Schedule (booked page). */
   META_PIXEL_ID: "",
+
+
+  /* Who runs the in-home visit (shown on the booked page). */
+  CONSULTANT_NAME: "Roy",
+
+  /* Your Facebook group link (small button on the booked page). Leave "" to hide. */
+  FB_GROUP_URL: "",
+
+  /* ---- DESIGN CONCEPT GALLERY (homepage + booked page) ----
+     AI design concepts, always labeled "Design concept". Swap in real project photos as you finish jobs. */
+  GALLERY: [
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_349ef23a-2db8-475e-b5e8-6870754afd89.png", cap: "Encino upgrade: patio cover, grill island, lawn and fire pit", wide: true },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_d3ebac63-7e0d-4908-b23e-6829b2a4b7cc.png", cap: "Valley ranch home: patio cover, pavers, lawn and fire pit" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_526c3c90-6267-4778-a7e0-4a99193fb84f.png", cap: "Family yard: aluminum patio cover, play lawn, fire table" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_08d29e64-7068-495f-8192-3ae859313631.png", cap: "Pergola dining and a sunken fire pit for cool nights" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_74cf265f-9388-4a1d-a202-15406dfe7da5.png", cap: "Spanish-style home: wood patio cover, lawn and fire pit" }
+  ],
 
   /* ---- TESTIMONIALS ----
      Add REAL client reviews only (FTC rules + Meta ad policy).

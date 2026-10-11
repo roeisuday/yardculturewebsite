@@ -78,6 +78,12 @@
     new IntersectionObserver(function (es, o) { es.forEach(function (en) { if (en.isIntersecting) { o.disconnect(); var t0 = performance.now(); (function an(t) { var k = (t - t0) / 2200; if (k > 1 || drag) return; var r = ba.getBoundingClientRect(); set(r.left + r.width * (0.5 + 0.32 * Math.sin(k * Math.PI * 2))); requestAnimationFrame(an); })(t0); } }); }, { threshold: .5 }).observe(ba);
   }
 
+  /* ---------- Gallery ---------- */
+  var gal = $("#gal");
+  if (gal && C.GALLERY && C.GALLERY.length) {
+    gal.innerHTML = C.GALLERY.map(function (g) { return '<figure class="reveal' + (g.wide ? ' wide' : '') + '"><img src="' + g.src + '" alt="' + (g.cap || "Backyard design concept").replace(/"/g, "") + '" loading="lazy"><span class="concept">DESIGN CONCEPT</span>' + (g.cap ? "<figcaption>" + g.cap + "</figcaption>" : "") + "</figure>"; }).join("");
+  } else if (gal) { gal.parentNode.parentNode.hidden = true; }
+
   /* ---------- Reveal on scroll ---------- */
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: .12 });
   $$(".reveal").forEach(function (el) { io.observe(el); });

@@ -4,6 +4,7 @@ YARD CULTURE SOCAL: LANDING PAGE SETUP (about 15 minutes)
 FILES
   index.html        landing page
   thank-you.html    after-submit page (calendar + Meta "Lead" event)
+  booked.html       after-booking page (prep checklist, gallery, Meta "Schedule" event)
   privacy.html      privacy policy (needed for Meta ads and SMS)
   config.js         <- THE ONLY FILE YOU EDIT (spots, phone, webhook, calendar, pixel, reviews)
   app.js, styles.css, _headers
@@ -59,3 +60,8 @@ HONESTY RULES (protects your ad account)
   - Scarcity: SPOTS_LEFT must be your real remaining capacity.
   - Countdown: counts to the real monthly reset of free design spots.
   - Testimonials: real clients only, with their permission.
+
+AFTER-BOOKING PAGE (booked.html)
+  GHL > Calendars > FREE 3D Backyard In-home Consultation > Edit > Forms & Payment (or Confirmation)
+  > "Redirect to URL" = https://<your-domain>/booked.html
+  Fill FB_GROUP_URL and CONSULTANT_NAME in config.js. GALLERY images show on the homepage and booked page.
