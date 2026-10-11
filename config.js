@@ -34,7 +34,7 @@ window.YC = {
   CONSULTANT_NAME: "Roy",
 
   /* Your Facebook group link (small button on the booked page). Leave "" to hide. */
-  FB_GROUP_URL: "",
+  FB_GROUP_URL: "https://www.facebook.com/groups/backyardideas",
 
   /* ---- DESIGN CONCEPT GALLERY (homepage + booked page) ----
      AI design concepts, always labeled "Design concept". Swap in real project photos as you finish jobs. */
