@@ -48,7 +48,7 @@
   }
   tick(); setInterval(tick, 1000);
 
-  /* ---------- Testimonials / Founding clients ---------- */
+  /* ---------- Testimonials / Why us ---------- */
   var T = C.TESTIMONIALS || [], tw = $("#tWrap");
   var esc = function (s) { var d = document.createElement("div"); d.textContent = s || ""; return d.innerHTML; };
   if (T.length) {
@@ -59,12 +59,21 @@
     tw.innerHTML = T.map(function (t) {
       return '<div class="tcard reveal"><div class="stars">' + "★★★★★".slice(0, t.stars || 5) + "</div><p>“" + esc(t.text) + '”</p><div class="who">' + esc(t.name) + (t.city ? " <small>· " + esc(t.city) + "</small>" : "") + "</div></div>";
     }).join("");
-  } else {
-    tw.innerHTML = '<div class="founding" style="text-align:left"><div><h3>The Founding Client offer</h3>' +
-      "<p>We're building our portfolio in Southern California, and we'd rather show you real yards than stock photos. Our first homeowners get extra attention in exchange for letting us share their transformation.</p>" +
-      "<ul><li>Priority scheduling for your design and consultation</li><li>An extra design revision round</li><li>A professional before-and-after shoot of your finished yard</li></ul></div>" +
-      '<div class="fbox"><div class="big">' + (left || "—") + '</div><p style="margin:8px 0 18px">free design spots left for ' + month + '</p><a class="btn block" href="#get">Become a Founding Client</a></div></div>';
   }
+  /* Why-us + service area (always shown, below reviews if any) */
+  var stat = C.PROJECTS_DONE ? '<div class="stat"><b>' + esc(C.PROJECTS_DONE) + '</b><span>' + esc(C.PROJECTS_LABEL || "SoCal yards and remodels completed") + "</span></div>" : "";
+  var why = [
+    ["See it before you build", "A 3D design of your actual yard, so every dollar goes where you planned it. No surprises after the concrete is poured."],
+    ["Designed for Valley heat", "Patio covers placed for real afternoon sun, low-water planting, and lawns that stay green without a crazy water bill."],
+    ["One person, start to finish", "The same person who walks your yard designs it and answers your calls. No call centers, no handoffs."],
+    ["Zero pressure", "The design and visit are free, and the design is yours to keep whether or not you build with us."]
+  ];
+  var areas = (C.AREAS || []).map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("");
+  tw.insertAdjacentHTML("afterend", "<div>" +
+    stat +
+    '<div class="why">' + why.map(function (w) { return '<div class="box reveal"><h3>' + w[0] + "</h3><p>" + w[1] + "</p></div>"; }).join("") + "</div>" +
+    (areas ? '<div class="areas"><b>Serving the San Fernando Valley and beyond</b><div>' + areas + "</div></div>" : "") +
+    '<p style="margin-top:30px"><a class="btn" href="#get">Get My Free 3D Design</a></p></div>');
 
   /* ---------- Before/after slider ---------- */
   var ba = $("#ba");

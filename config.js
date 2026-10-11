@@ -39,16 +39,24 @@ window.YC = {
   /* ---- DESIGN CONCEPT GALLERY (homepage + booked page) ----
      AI design concepts, always labeled "Design concept". Swap in real project photos as you finish jobs. */
   GALLERY: [
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_349ef23a-2db8-475e-b5e8-6870754afd89.png", cap: "Encino upgrade: patio cover, grill island, lawn and fire pit", wide: true },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_d3ebac63-7e0d-4908-b23e-6829b2a4b7cc.png", cap: "Valley ranch home: patio cover, pavers, lawn and fire pit" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_526c3c90-6267-4778-a7e0-4a99193fb84f.png", cap: "Family yard: aluminum patio cover, play lawn, fire table" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_08d29e64-7068-495f-8192-3ae859313631.png", cap: "Pergola dining and a sunken fire pit for cool nights" },
-    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_74cf265f-9388-4a1d-a202-15406dfe7da5.png", cap: "Spanish-style home: wood patio cover, lawn and fire pit" }
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_349ef23a-2db8-475e-b5e8-6870754afd89.png", cap: "Encino · lattice patio cover, grill island, lawn and fire pit", wide: true },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_d3ebac63-7e0d-4908-b23e-6829b2a4b7cc.png", cap: "Woodland Hills · ranch home with patio cover, pavers and fire pit" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_526c3c90-6267-4778-a7e0-4a99193fb84f.png", cap: "Northridge · family yard with patio cover, play lawn and fire table" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_033415_08d29e64-7068-495f-8192-3ae859313631.png", cap: "Sherman Oaks · pergola dining and a sunken fire pit" },
+    { src: "https://d8j0ntlcm91z4.cloudfront.net/user_3KBn5dIGulR51DgWquIs0Wsqyiy/hf_20261011_034326_74cf265f-9388-4a1d-a202-15406dfe7da5.png", cap: "Studio City · Spanish-style home, wood patio cover and fire pit" }
   ],
+
+  /* ---- TRACK RECORD (only fill with a TRUE number) ----
+     e.g. PROJECTS_DONE: "40+"  -> shows "40+ SoCal yards and remodels completed". Leave "" to hide. */
+  PROJECTS_DONE: "",
+  PROJECTS_LABEL: "SoCal yards and remodels completed",
+
+  /* Neighborhoods listed in the "Serving" strip */
+  AREAS: ["Encino","Sherman Oaks","Studio City","Tarzana","Woodland Hills","Calabasas","West Hills","Valley Village","North Hollywood","Toluca Lake","Burbank","Van Nuys","Reseda","Northridge","Granada Hills","Porter Ranch","Chatsworth","West LA","Orange County"],
 
   /* ---- TESTIMONIALS ----
      Add REAL client reviews only (FTC rules + Meta ad policy).
-     While this list is empty, the site shows a "Founding Client" offer instead.
+     While this list is empty, only the "Why us" block shows.
      Example:
      { name: "Dana R.", city: "Encino", text: "They showed us our yard in 3D before we spent a dollar...", stars: 5 }
   */

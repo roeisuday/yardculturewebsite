@@ -180,3 +180,14 @@ footer a{color:#9d968c}
 .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;font-weight:600;font-size:15px}
 .gallery figure.wide{grid-column:span 2;aspect-ratio:16/8}
 @media (max-width:700px){.gallery{grid-template-columns:1fr}.gallery figure.wide{grid-column:auto;aspect-ratio:4/3}}
+
+/* why us */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px;text-align:left}
+.why .box{padding:24px}.why h3{font-size:22px;margin-bottom:8px}
+.stat{display:inline-flex;align-items:baseline;gap:12px;margin-top:22px;background:var(--ink);color:#fff;border-radius:999px;padding:12px 26px}
+.stat b{font-family:"DM Serif Display",serif;font-weight:400;font-size:34px;color:var(--gold)}
+.areas{margin-top:34px}.areas b{display:block;margin-bottom:12px}
+.areas div{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.areas span{background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600}
+@media (max-width:900px){.why{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.why{grid-template-columns:1fr}}

@@ -26,7 +26,8 @@ FILES
   GHL_WEBHOOK_URL           -> paste the webhook URL (backup path)
   GHL_CALENDAR_URL          -> GHL Calendars > Share link (shows on the thank-you page)
   META_PIXEL_ID             -> Events Manager
-  TESTIMONIALS              -> add real reviews when you get them; the Founding Client block disappears automatically
+  PROJECTS_DONE             -> your real number of completed jobs (e.g. "40+"); leave "" to hide
+  TESTIMONIALS              -> add real reviews when you get them; they show above the "Why us" block
 
 3) DEPLOY ON CLOUDFLARE PAGES
   Option A: Drag and drop (easiest)
