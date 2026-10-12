@@ -139,7 +139,7 @@
       };
       for (var k in attr) lead[k] = attr[k];
       var btn = $(".js-submit", f); btn.disabled = true; btn.textContent = "Sending…";
-      try { sessionStorage.setItem("yc_lead", JSON.stringify({ first_name: lead.first_name, city: lead.city, email: email, phone: phone })); } catch (x) {}
+      try { sessionStorage.setItem("yc_lead", JSON.stringify({ first_name: lead.first_name, city: lead.city, interests: lead.interests, timeline: lead.timeline, email: email, phone: phone })); } catch (x) {}
 
       var done = function () { location.href = "thank-you.html"; };
       var direct = function () {
