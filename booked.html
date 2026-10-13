@@ -74,8 +74,8 @@
   </div>
 
   <div class="photos">
-    <div><h3 style="color:#fff">Want a head start? Text us 2–3 photos of your yard.</h3>
-      <p>We'll look before we arrive, so the visit goes straight to ideas for your space.</p></div>
+    <div><h3 style="color:#fff">Want a head start? Text us 2–3 photos and your vision.</h3>
+      <p>Add one line on what you'd love (fire pit, lawn, shade, kitchen). Roy will prepare a design presentation before the visit.</p></div>
     <a class="btn js-sms" href="#">Text Photos</a>
   </div>
 </div></section>
@@ -121,7 +121,7 @@
   if (C.CONSULTANT_NAME) $(".js-who").textContent = C.CONSULTANT_NAME + " walks your yard with you";
 
   var tel = (C.PHONE || "").replace(/[^\d+]/g, "");
-  var smsBody = encodeURIComponent("Hi, I just booked my free backyard design visit. Here are photos of my yard:");
+  var smsBody = encodeURIComponent("Hi Roy, I just booked my free backyard design visit. Here are photos of my yard. What I'd love: ");
   var sms = tel ? "sms:" + tel + "?&body=" + smsBody : "#";
   $(".js-sms").href = sms; $(".js-sms2").href = tel ? "sms:" + tel : "#";
   if (tel) { $(".js-or").innerHTML = ' or call <a href="tel:' + tel + '">' + C.PHONE + "</a>"; }
