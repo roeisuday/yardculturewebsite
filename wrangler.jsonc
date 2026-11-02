@@ -1,0 +1,10 @@
+// Static site served by Cloudflare Workers (static assets). No Worker script.
+// The functions/ folder is a leftover Pages Function and is NOT deployed here;
+// the site form posts straight to the GHL webhook (see config.js).
+{
+  "name": "yardculturewebsite",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "."
+  }
+}
