@@ -191,3 +191,8 @@ footer a{color:#9d968c}
 .areas span{background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600}
 @media (max-width:900px){.why{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.why{grid-template-columns:1fr}}
+
+/* nav text link (roof page) */
+.navlink{font-weight:700;font-size:14px;text-decoration:none;color:var(--ink2);white-space:nowrap}
+.navlink:hover{color:var(--gold2)}
+@media (max-width:420px){.navlink{font-size:13px}}

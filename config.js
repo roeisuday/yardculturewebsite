@@ -12,8 +12,8 @@ window.YC = {
   /* ---- SCARCITY (keep these TRUE) ----
      How many free 3D designs you can actually deliver this month,
      and how many are still open. Update SPOTS_LEFT as you book. */
-  SPOTS_TOTAL: 10,
-  SPOTS_LEFT: 2,
+  SPOTS_TOTAL: 0,   // 0 = show "Limited free 3D design spots each month" (no exact count)
+  SPOTS_LEFT: 0,
   SPOTS_LABEL: "free 3D design spots left for",   // "{left} of {total} free 3D design spots left for October"
 
   /* ---- LEAD ROUTING ----

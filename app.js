@@ -35,7 +35,7 @@
   var spotsTxt = total ? (left ? left + " of " + total + " " + (C.SPOTS_LABEL || "free spots left for") + " " + month
                                : "All " + month + " spots are booked. Join the waitlist for next month")
                        : "Limited free 3D design spots each month";
-  $("#barText").innerHTML = total && left ? "Only <b>" + left + " of " + total + "</b> free 3D design spots left for " + month + " &middot; <a href='#get' style='color:#fff'>Claim yours</a>" : spotsTxt;
+  if ($("#barText")) $("#barText").innerHTML = total && left ? "Only <b>" + left + " of " + total + "</b> free 3D design spots left for " + month + " &middot; <a href='#get' style='color:#fff'>Claim yours</a>" : spotsTxt;
   $$(".js-left").forEach(function (e) { e.textContent = left ? left : "the"; });
 
   /* ---------- Countdown to month end ---------- */
