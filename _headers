@@ -9,3 +9,7 @@
 /roy.vcf
   Content-Type: text/vcard; charset=utf-8
   Content-Disposition: attachment; filename="Roy-Yard-Culture-SoCal.vcf"
+
+/p/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache
