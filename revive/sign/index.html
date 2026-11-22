@@ -96,6 +96,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <h2>Schedule &amp; payment</h2>
 <div class="row"><div><label class="f" for="d1">Start date</label><input id="d1" type="date"></div><div><label class="f" for="d2">Second visit (sand / seal)</label><input id="d2" type="date"></div></div>
 <div class="row"><div><label class="f" for="dep">Deposit</label><input id="dep" type="number" inputmode="decimal" placeholder="$ 0"></div><div><label class="f" for="pay">Paid by</label><select id="pay"><option>Zelle</option><option>Cash</option><option>Check</option><option>Card</option></select></div></div>
+<label class="f" for="pnote">Price note (optional, shown to client)</label><textarea id="pnote" placeholder="e.g. Regular price $2,800. $2,200 if work starts this week."></textarea>
 <button class="btn" id="toClient" type="button">Show to client</button>
 <div class="err" id="err1"></div>
 </div>
@@ -109,6 +110,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <table class="lines" id="sumLines"></table>
 <div class="tot"><span>Total</span><span id="sumTotal"></span></div>
 <div id="sumPay" style="font-size:14px;color:var(--mut)"></div>
+<div id="sumNote" class="cancel" style="display:none"></div>
 </div>
 <div class="card">
 <h2>Before we arrive</h2>
@@ -164,7 +166,7 @@ $('#toClient').onclick=()=>{
  if(!$('#c_name').value.trim()){err.textContent='Add the client name.';return}
  if(!$('#c_addr').value.trim()){err.textContent='Add the job address.';return}
  if(!list.length){err.textContent='Check at least one service.';return}
- if(list.some(s=>!s.price)){err.textContent='Add a price for each checked service.';return}
+ if(!list.reduce((a,s)=>a+s.price,0)){err.textContent='Add a price.';return}
  const total=calc(),dep=parseFloat($('#dep').value)||0;
  const areas=$$('#areas input:checked').map(i=>i.value);if($('#c_areaOther').value.trim())areas.push($('#c_areaOther').value.trim());
  const now=new Date(),p=n=>String(n).padStart(2,'0');
@@ -174,7 +176,8 @@ $('#toClient').onclick=()=>{
   list,total,dep,bal:total-dep,pay:$('#pay').value,d1:fmtD($('#d1').value),d2:fmtD($('#d2').value)};
  const info=[['Agreement',R.no],['Client',R.name],['Phone',R.phone],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start',R.d1],['Second visit',R.d2]].filter(x=>x[1]);
  $('#sumInfo').innerHTML=info.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
- $('#sumLines').innerHTML=list.map(s=>`<tr><td><b>${esc(s.name)}</b><small>${esc(s.desc)}</small></td><td>${money(s.price)}</td></tr>`).join('');
+ $('#sumLines').innerHTML=list.map(s=>`<tr><td><b>${esc(s.name)}</b><small>${esc(s.desc)}</small></td><td>${s.price?money(s.price):'Included'}</td></tr>`).join('');
+ R.note=$('#pnote').value.trim();$('#sumNote').style.display=R.note?'':'none';$('#sumNote').textContent=R.note;
  $('#sumTotal').textContent=money(total);
  $('#sumPay').textContent=(dep?`Deposit ${money(dep)} · Balance ${money(R.bal)} due on completion`:`Balance ${money(total)} due on completion`)+` · ${R.pay}`;
  $('#pname').value=R.name;
@@ -232,11 +235,12 @@ async function buildImage(R){
  [['Client',R.name],['Phone',R.phone],['Email',R.email],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start date',R.d1],['Second visit',R.d2]].filter(r=>r[1]).forEach(([k,v])=>{x.fillStyle='#55605a';x.font='22px Arial';x.fillText(k,P,y);x.fillStyle='#1f2723';x.font='24px Arial';y=wrap(x,v,P+210,y,W-2*P-210,32)+6});
  y+=14;H('Scope of work');
  for(const s of R.list){x.strokeStyle='#c9d3ce';x.lineWidth=2;x.beginPath();x.moveTo(P,y-26);x.lineTo(W-P,y-26);x.stroke();
-  x.fillStyle='#1f2723';x.font='700 25px Arial';x.fillText(s.name,P,y);x.textAlign='right';x.fillText(money(s.price),W-P,y);x.textAlign='left';y+=32;
+  x.fillStyle='#1f2723';x.font='700 25px Arial';x.fillText(s.name,P,y);x.textAlign='right';x.fillText(s.price?money(s.price):'Included',W-P,y);x.textAlign='left';y+=32;
   if(s.desc){x.fillStyle='#55605a';x.font='21px Arial';y=wrap(x,s.desc,P,y,W-2*P-180,29)}y+=24}
  x.fillStyle='#1f4a3a';x.fillRect(P,y-20,W-2*P,R.dep?128:72);x.fillStyle='#fff';x.font='700 28px Arial';x.fillText('TOTAL',P+24,y+22);x.textAlign='right';x.fillText(money(R.total),W-P-24,y+22);
  if(R.dep){x.font='22px Arial';x.fillText(money(R.dep),W-P-24,y+60);x.fillText(money(R.bal),W-P-24,y+92);x.textAlign='left';x.fillText('Deposit ('+R.pay+')',P+24,y+60);x.fillText('Balance due on completion',P+24,y+92)}else{x.textAlign='left'}
  x.textAlign='left';y+=(R.dep?150:94);
+ if(R.note){x.fillStyle='#1f4a3a';x.font='700 22px Arial';y=wrap(x,R.note,P,y,W-2*P,30)+20}
  H('Terms');x.fillStyle='#33403a';x.font='20px Arial';
  ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Final walk-through together; anything missed in the work area we fix within 7 days. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.','Right to cancel: you may cancel without penalty within 3 business days after signing (5 if you are 65 or older) by written notice to the address above. Any payment made is returned within 10 days.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
  y+=24;H('Signed');
@@ -246,6 +250,20 @@ async function buildImage(R){
  const o=document.createElement('canvas');o.width=W;o.height=y+30;o.getContext('2d').drawImage(c,0,0);
  return o.toDataURL('image/jpeg',0.9);
 }
+const PRESETS={
+ 'pool-1884':{sqft:'1884',areas:[],surf:['Concrete'],
+  other:'Front entry walkway, driveway, side entrance and all backyard stamped concrete (approx. 1,884 sq ft)',
+  svc:{clean:2200,special:0},
+  cleanDesc:'Power wash approx. 1,884 sq ft: front entry walkway, driveway, side entrance and all backyard stamped concrete. Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges and steps detailed; full rinse.',
+  special:'Pool tiles cleaned. Light power wash of the walls around the backyard work area. Fill the gaps under the concrete slab behind the pool.',
+  note:'Regular price $2,800. Your price is $2,200 when the work starts this week (by Saturday, November 28).'}
+};
+(function(){const k=new URLSearchParams(location.search).get('job'),P=PRESETS[k];if(!P)return;
+ $('#c_sqft').value=P.sqft;P.areas.forEach(v=>{const i=$(`#areas input[value="${v}"]`);if(i)i.checked=true});P.surf.forEach(v=>{const i=$(`#surf input[value="${v}"]`);if(i)i.checked=true});
+ $('#c_areaOther').value=P.other;
+ Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
+ if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
+ if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;})();
 calc();
 </script>
 </body>
