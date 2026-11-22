@@ -4,36 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#1f4a3a">
+<meta name="theme-color" content="#2f3337">
 <title>Revive · Service Agreement</title>
 <style>
-:root{color-scheme:light;--g:#1f4a3a;--g2:#e8efeb;--ink:#1f2723;--mut:#55605a;--line:#c9d3ce}
+:root{color-scheme:light;--g:#2f3337;--a:#f5a623;--g2:#fdf1dc;--ink:#25282b;--mut:#5c6166;--line:#d3d6d9}
 *{box-sizing:border-box}
 body{margin:0;font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;color:var(--ink);background:#f3f6f4}
-header{background:var(--g);color:#fff;padding:18px 18px 14px}
-header b{font-size:26px;letter-spacing:.08em;display:block;line-height:1}
-header span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d5e3dc}
+header{background:var(--g);color:#fff;padding:18px 18px 14px;border-bottom:5px solid var(--a)}
+header b{font-size:26px;letter-spacing:.08em;display:block;line-height:1;color:var(--a)}
+header span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9dcdf}
 main{max-width:640px;margin:0 auto;padding:14px 14px 120px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
-h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--g);margin:0 0 10px}
+h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:#b06f00;margin:0 0 10px}
 label.f{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
 input[type=text],input[type=tel],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:16px inherit;font-family:inherit;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink)}
 textarea{min-height:64px;resize:vertical}
 .row{display:flex;gap:10px}.row>*{flex:1}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:14px;background:#fff}
-.chips input{width:18px;height:18px;accent-color:var(--g)}
+.chips input{width:18px;height:18px;accent-color:#d98a00}
 .svc{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
-.svc.on{border-color:var(--g);background:#f6faf8}
+.svc.on{border-color:var(--a);background:#fffaf0}
 .svc .top{display:flex;align-items:center;gap:10px}
-.svc .top input[type=checkbox]{width:22px;height:22px;accent-color:var(--g)}
+.svc .top input[type=checkbox]{width:22px;height:22px;accent-color:#d98a00}
 .svc .top b{flex:1}
 .svc .price{width:120px}
 .svc p{margin:6px 0 0 32px;font-size:13px;color:var(--mut)}
 .svc .extra{margin:8px 0 0 32px}
 .tot{display:flex;justify-content:space-between;font-weight:700;font-size:20px;padding:12px 0 0}
 .warn{display:none;background:#fff4e5;border:1px solid #e9b872;color:#7a4b0c;border-radius:10px;padding:10px 12px;font-size:14px;margin-top:10px}
-.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--g);color:#fff;font:600 17px inherit;font-family:inherit;padding:16px;margin-top:12px}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--a);color:#1d1f21;font:600 17px inherit;font-family:inherit;padding:16px;margin-top:12px}
 .btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}
 .btn:disabled{opacity:.45}
 .err{color:#a3271f;font-size:14px;margin-top:8px;min-height:1em}
@@ -45,14 +45,14 @@ textarea{min-height:64px;resize:vertical}
 .lines small{display:block;color:var(--mut);font-size:13px;margin-top:2px}
 ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 0}
 .cancel{background:var(--g2);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:10px}
-.sigbox{border:1.5px dashed #8aa197;border-radius:12px;background:#fff;position:relative;height:190px;touch-action:none}
+.sigbox{border:1.5px dashed #b9bdc1;border-radius:12px;background:#fff;position:relative;height:190px;touch-action:none}
 .sigbox canvas{width:100%;height:100%;display:block;border-radius:12px}
 .sigbox .hint{position:absolute;left:14px;bottom:10px;font-size:13px;color:#8a958f;pointer-events:none}
-.clr{background:none;border:0;color:var(--g);font:600 14px inherit;font-family:inherit;padding:8px 0}
+.clr{background:none;border:0;color:#b06f00;font:600 14px inherit;font-family:inherit;padding:8px 0}
 .agree{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin:12px 0}
-.agree input{width:24px;height:24px;accent-color:var(--g);flex:none}
+.agree input{width:24px;height:24px;accent-color:#d98a00;flex:none}
 .done{text-align:center}
-.done .ck{width:64px;height:64px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
+.done .ck{width:64px;height:64px;border-radius:50%;background:var(--a);color:#fff;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
 #outImg{width:100%;border:1px solid var(--line);border-radius:10px;margin-top:12px;-webkit-touch-callout:default}
 .hide{display:none}
 .top-note{font-size:13px;color:var(--mut);margin:4px 2px}
@@ -104,6 +104,12 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 
 <!-- STEP 2: client reviews & signs -->
 <section id="s2" class="hide">
+<div class="card" id="cIntro" style="display:none"><h2>Your proposal</h2><p style="margin:0 0 6px" id="cIntroTxt"></p>
+<div id="optBox"></div>
+<label class="f" for="k_name">Your name *</label><input id="k_name" type="text" autocomplete="name">
+<label class="f" for="k_phone">Phone</label><input id="k_phone" type="tel" autocomplete="tel">
+<label class="f" for="k_addr">Property address *</label><input id="k_addr" type="text" autocomplete="street-address">
+</div>
 <div class="card sum">
 <h2>Service agreement</h2>
 <dl id="sumInfo"></dl>
@@ -134,7 +140,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <!-- STEP 3: done -->
 <section id="s3" class="hide">
 <div class="card done">
-<div class="ck"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<div class="ck"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1d1f21" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
 <h2 style="font-size:22px;letter-spacing:0;text-transform:none;color:var(--ink)" id="thx">Thank you!</h2>
 <p style="margin:0;color:var(--mut)">Your agreement is signed. A copy is below.</p>
 <button class="btn" id="shareBtn" type="button">Send / save a copy</button>
@@ -160,7 +166,9 @@ document.addEventListener('input',e=>{if(e.target.closest('#s1')){if(e.target.cl
 document.addEventListener('change',e=>{if(e.target.closest('#s1'))calc()});
 const fmtD=v=>v?new Date(v+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}):'';
 let R=null;
-$('#toClient').onclick=()=>{
+let CLIENT=false;
+$('#toClient').onclick=()=>render(true);
+function render(fromRoy){
  const err=$('#err1');err.textContent='';
  const list=svcs();
  if(!$('#c_name').value.trim()){err.textContent='Add the client name.';return}
@@ -174,15 +182,14 @@ $('#toClient').onclick=()=>{
   name:$('#c_name').value.trim(),phone:$('#c_phone').value.trim(),email:$('#c_email').value.trim(),addr:$('#c_addr').value.trim(),city:$('#c_city').value.trim(),
   sqft:$('#c_sqft').value.trim(),areas:areas.join(', '),surface:$$('#surf input:checked').map(i=>i.value).join(', '),
   list,total,dep,bal:total-dep,pay:$('#pay').value,d1:fmtD($('#d1').value),d2:fmtD($('#d2').value)};
- const info=[['Agreement',R.no],['Client',R.name],['Phone',R.phone],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start',R.d1],['Second visit',R.d2]].filter(x=>x[1]);
+ const info=[['Agreement',R.no],['Client',R.name],['Phone',R.phone],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start',R.d1],['Second visit',R.d2]].filter(x=>x[1]&&!(CLIENT&&['Agreement','Client','Phone','Address'].includes(x[0])));
  $('#sumInfo').innerHTML=info.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
  $('#sumLines').innerHTML=list.map(s=>`<tr><td><b>${esc(s.name)}</b><small>${esc(s.desc)}</small></td><td>${s.price?money(s.price):'Included'}</td></tr>`).join('');
  R.note=$('#pnote').value.trim();$('#sumNote').style.display=R.note?'':'none';$('#sumNote').textContent=R.note;
  $('#sumTotal').textContent=money(total);
- $('#sumPay').textContent=(dep?`Deposit ${money(dep)} · Balance ${money(R.bal)} due on completion`:`Balance ${money(total)} due on completion`)+` · ${R.pay}`;
- $('#pname').value=R.name;
- show('#s2');setTimeout(sizeSig,50);
-};
+ $('#sumPay').textContent=(dep?`Deposit ${money(dep)} · Balance ${money(R.bal)} due on completion`:`Balance ${money(total)} due on completion`)+(CLIENT?'':` · ${R.pay}`);
+ if(fromRoy){$('#pname').value=R.name;show('#s2');setTimeout(sizeSig,50)}
+}
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
 function show(id){['#s1','#s2','#s3'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo(0,0)}
 $('#back').onclick=()=>show('#s1');
@@ -197,6 +204,9 @@ $('#clr').onclick=sizeSig;
 let outURL=null;
 $('#signBtn').onclick=async()=>{
  const err=$('#err2');err.textContent='';
+ if(CLIENT){const n=$('#k_name').value.trim(),a=$('#k_addr').value.trim();if(!n||!a){err.textContent='Please add your name and property address at the top.';window.scrollTo(0,0);return}
+  R.name=n;R.addr=a;R.city='';R.phone=$('#k_phone').value.trim();if(!$('#pname').value.trim())$('#pname').value=n;
+  const now=new Date(),p=v=>String(v).padStart(2,'0');R.no='RV-'+String(now.getFullYear()).slice(2)+p(now.getMonth()+1)+p(now.getDate())+'-'+p(now.getHours())+p(now.getMinutes())}
  if(!inked){err.textContent='Please sign in the box.';return}
  if(!$('#pname').value.trim()){err.textContent='Please print your name.';return}
  if(!$('#ok').checked){err.textContent='Please check the box to agree.';return}
@@ -226,21 +236,21 @@ function wrap(c,t,x,y,w,lh){const ws=String(t).split(/\s+/);let ln='';for(const 
 async function buildImage(R){
  const W=1240,P=70,c=document.createElement('canvas');c.width=W;c.height=3600;const x=c.getContext('2d');
  x.fillStyle='#fff';x.fillRect(0,0,W,c.height);
- x.fillStyle='#1f4a3a';x.fillRect(0,0,W,150);
- x.fillStyle='#fff';x.font='800 54px Arial';x.fillText('REVIVE',P,78);x.font='18px Arial';x.fillStyle='#d5e3dc';x.fillText('CULTURE SOCAL · PAVER & CONCRETE RESTORATION',P,112);
- x.textAlign='right';x.fillStyle='#fff';x.font='700 30px Arial';x.fillText('SERVICE AGREEMENT',W-P,72);x.font='20px Arial';x.fillStyle='#d5e3dc';x.fillText('No. '+R.no,W-P,108);x.textAlign='left';
- x.fillStyle='#e8efeb';x.fillRect(0,150,W,44);x.fillStyle='#2c3a34';x.font='18px Arial';x.fillText('11150 W Olympic Blvd, Suite 1050, Los Angeles, CA 90064 · (213) 510-3309 · reviveculturesocal.com',P,179);
- let y=250;const H=t=>{x.fillStyle='#1f4a3a';x.font='700 20px Arial';x.fillText(t.toUpperCase(),P,y);y+=36};
+ x.fillStyle='#2f3337';x.fillRect(0,0,W,150);x.fillStyle='#f5a623';x.fillRect(0,150,W,8);
+ x.fillStyle='#f5a623';x.font='800 54px Arial';x.fillText('REVIVE',P,78);x.font='18px Arial';x.fillStyle='#d9dcdf';x.fillText('CULTURE SOCAL · PAVER & CONCRETE RESTORATION',P,112);
+ x.textAlign='right';x.fillStyle='#fff';x.font='700 30px Arial';x.fillText('SERVICE AGREEMENT',W-P,72);x.font='20px Arial';x.fillStyle='#d9dcdf';x.fillText('No. '+R.no,W-P,108);x.textAlign='left';
+ x.fillStyle='#f3f4f5';x.fillRect(0,158,W,40);x.fillStyle='#3b4045';x.font='18px Arial';x.fillText('11150 W Olympic Blvd, Suite 1050, Los Angeles, CA 90064 · (213) 510-3309 · reviveculturesocal.com',P,185);
+ let y=250;const H=t=>{x.fillStyle='#b06f00';x.font='700 20px Arial';x.fillText(t.toUpperCase(),P,y);y+=36};
  H('Client & property');
  [['Client',R.name],['Phone',R.phone],['Email',R.email],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start date',R.d1],['Second visit',R.d2]].filter(r=>r[1]).forEach(([k,v])=>{x.fillStyle='#55605a';x.font='22px Arial';x.fillText(k,P,y);x.fillStyle='#1f2723';x.font='24px Arial';y=wrap(x,v,P+210,y,W-2*P-210,32)+6});
  y+=14;H('Scope of work');
  for(const s of R.list){x.strokeStyle='#c9d3ce';x.lineWidth=2;x.beginPath();x.moveTo(P,y-26);x.lineTo(W-P,y-26);x.stroke();
   x.fillStyle='#1f2723';x.font='700 25px Arial';x.fillText(s.name,P,y);x.textAlign='right';x.fillText(s.price?money(s.price):'Included',W-P,y);x.textAlign='left';y+=32;
   if(s.desc){x.fillStyle='#55605a';x.font='21px Arial';y=wrap(x,s.desc,P,y,W-2*P-180,29)}y+=24}
- x.fillStyle='#1f4a3a';x.fillRect(P,y-20,W-2*P,R.dep?128:72);x.fillStyle='#fff';x.font='700 28px Arial';x.fillText('TOTAL',P+24,y+22);x.textAlign='right';x.fillText(money(R.total),W-P-24,y+22);
+ x.fillStyle='#2f3337';x.fillRect(P,y-20,W-2*P,R.dep?128:72);x.fillStyle='#f5a623';x.fillRect(P,y-20,8,R.dep?128:72);x.fillStyle='#fff';x.font='700 28px Arial';x.fillText('TOTAL',P+24,y+22);x.textAlign='right';x.fillText(money(R.total),W-P-24,y+22);
  if(R.dep){x.font='22px Arial';x.fillText(money(R.dep),W-P-24,y+60);x.fillText(money(R.bal),W-P-24,y+92);x.textAlign='left';x.fillText('Deposit ('+R.pay+')',P+24,y+60);x.fillText('Balance due on completion',P+24,y+92)}else{x.textAlign='left'}
  x.textAlign='left';y+=(R.dep?150:94);
- if(R.note){x.fillStyle='#1f4a3a';x.font='700 22px Arial';y=wrap(x,R.note,P,y,W-2*P,30)+20}
+ if(R.note){x.fillStyle='#2f3337';x.font='700 22px Arial';y=wrap(x,R.note,P,y,W-2*P,30)+20}
  H('Terms');x.fillStyle='#33403a';x.font='20px Arial';
  ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Final walk-through together; anything missed in the work area we fix within 7 days. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.','Right to cancel: you may cancel without penalty within 3 business days after signing (5 if you are 65 or older) by written notice to the address above. Any payment made is returned within 10 days.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
  y+=24;H('Signed');
@@ -256,14 +266,26 @@ const PRESETS={
   svc:{clean:2200,special:0},
   cleanDesc:'Power wash approx. 1,884 sq ft: front entry walkway, driveway, side entrance and all backyard stamped concrete. Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges and steps detailed; full rinse.',
   special:'Pool tiles cleaned. Light power wash of the walls around the backyard work area. Fill the gaps under the concrete slab behind the pool.',
-  note:'Regular price $2,800. Your price is $2,200 when the work starts this week (by Saturday, November 28).'}
+  note:'Regular price $2,800. Your price is $2,200 when the work starts this week (by Saturday, November 28).',
+  intro:'Here is the full plan for your property: a deep clean of about 1,884 sq ft of concrete, plus the pool tiles, the walls around the backyard and the gaps under the slab behind the pool. Pick your start option, then sign at the bottom to lock it in.',
+  options:[{label:'Start this week (by Sat, Nov 28)',price:2200,note:'Start-this-week price: $2,200 (regular price $2,800). Work starts by Saturday, November 28.'},
+           {label:'Start at a later date',price:2800,note:'Regular price: $2,800. Start date set together.'}]}
 };
 (function(){const k=new URLSearchParams(location.search).get('job'),P=PRESETS[k];if(!P)return;
  $('#c_sqft').value=P.sqft;P.areas.forEach(v=>{const i=$(`#areas input[value="${v}"]`);if(i)i.checked=true});P.surf.forEach(v=>{const i=$(`#surf input[value="${v}"]`);if(i)i.checked=true});
  $('#c_areaOther').value=P.other;
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
- if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;})();
+ if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;
+ if(new URLSearchParams(location.search).get('client')==='1'){CLIENT=true;
+  $('#c_name').value='Client';$('#c_addr').value='—';
+  $('#cIntro').style.display='';$('#cIntroTxt').textContent=P.intro||'';$('#back').style.display='none';
+  if(P.options){$('#optBox').innerHTML='<div class="chips" style="flex-direction:column;align-items:stretch">'+P.options.map((o,i)=>`<label style="border-radius:12px;padding:12px;justify-content:space-between"><span style="display:flex;gap:8px;align-items:center"><input type="radio" name="opt" value="${i}" ${i?'':'checked'}>${o.label}</span><b>${money(o.price)}</b></label>`).join('')+'</div>';
+   const pick=()=>{const o=P.options[+document.querySelector('input[name=opt]:checked').value];$('.svc[data-k="clean"] .price').value=o.price;$('#pnote').value=o.note;calc();render(false)};
+   $('#optBox').addEventListener('change',pick);pick()}else render(false);
+  show('#s2');setTimeout(sizeSig,50);
+  $('#sumInfo').closest('.card').querySelector('h2').textContent='What’s included'}
+})();
 calc();
 </script>
 </body>
