@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1f4a3a">
+<title>Revive · Service Agreement</title>
+<style>
+:root{color-scheme:light;--g:#1f4a3a;--g2:#e8efeb;--ink:#1f2723;--mut:#55605a;--line:#c9d3ce}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Arial,sans-serif;color:var(--ink);background:#f3f6f4}
+header{background:var(--g);color:#fff;padding:18px 18px 14px}
+header b{font-size:26px;letter-spacing:.08em;display:block;line-height:1}
+header span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d5e3dc}
+main{max-width:640px;margin:0 auto;padding:14px 14px 120px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--g);margin:0 0 10px}
+label.f{display:block;font-size:13px;color:var(--mut);margin:10px 0 4px}
+input[type=text],input[type=tel],input[type=email],input[type=number],input[type=date],textarea,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:16px inherit;font-family:inherit;background:#fff;color:var(--ink);-webkit-text-fill-color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-size:14px;background:#fff}
+.chips input{width:18px;height:18px;accent-color:var(--g)}
+.svc{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+.svc.on{border-color:var(--g);background:#f6faf8}
+.svc .top{display:flex;align-items:center;gap:10px}
+.svc .top input[type=checkbox]{width:22px;height:22px;accent-color:var(--g)}
+.svc .top b{flex:1}
+.svc .price{width:120px}
+.svc p{margin:6px 0 0 32px;font-size:13px;color:var(--mut)}
+.svc .extra{margin:8px 0 0 32px}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:20px;padding:12px 0 0}
+.warn{display:none;background:#fff4e5;border:1px solid #e9b872;color:#7a4b0c;border-radius:10px;padding:10px 12px;font-size:14px;margin-top:10px}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--g);color:#fff;font:600 17px inherit;font-family:inherit;padding:16px;margin-top:12px}
+.btn.ghost{background:#fff;color:var(--g);border:1.5px solid var(--g)}
+.btn:disabled{opacity:.45}
+.err{color:#a3271f;font-size:14px;margin-top:8px;min-height:1em}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;font-size:15px}
+.sum dt{color:var(--mut)}.sum dd{margin:0}
+.lines{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px}
+.lines td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+.lines td:last-child{text-align:right;white-space:nowrap;padding-left:10px}
+.lines small{display:block;color:var(--mut);font-size:13px;margin-top:2px}
+ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 0}
+.cancel{background:var(--g2);border-radius:10px;padding:10px 12px;font-size:14px;margin-top:10px}
+.sigbox{border:1.5px dashed #8aa197;border-radius:12px;background:#fff;position:relative;height:190px;touch-action:none}
+.sigbox canvas{width:100%;height:100%;display:block;border-radius:12px}
+.sigbox .hint{position:absolute;left:14px;bottom:10px;font-size:13px;color:#8a958f;pointer-events:none}
+.clr{background:none;border:0;color:var(--g);font:600 14px inherit;font-family:inherit;padding:8px 0}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin:12px 0}
+.agree input{width:24px;height:24px;accent-color:var(--g);flex:none}
+.done{text-align:center}
+.done .ck{width:64px;height:64px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
+#outImg{width:100%;border:1px solid var(--line);border-radius:10px;margin-top:12px;-webkit-touch-callout:default}
+.hide{display:none}
+.top-note{font-size:13px;color:var(--mut);margin:4px 2px}
+</style>
+</head>
+<body>
+<header><b>REVIVE</b><span>Culture SoCal · Paver &amp; Concrete Restoration</span></header>
+<main>
+
+<!-- STEP 1: Roy fills in -->
+<section id="s1">
+<p class="top-note">Fill this in, then hand the phone to the client.</p>
+<div class="card">
+<h2>Client &amp; property</h2>
+<label class="f" for="c_name">Client name *</label><input id="c_name" type="text" autocomplete="off">
+<div class="row"><div><label class="f" for="c_phone">Phone</label><input id="c_phone" type="tel"></div><div><label class="f" for="c_email">Email</label><input id="c_email" type="email"></div></div>
+<label class="f" for="c_addr">Job address *</label><input id="c_addr" type="text">
+<div class="row"><div><label class="f" for="c_city">City / ZIP</label><input id="c_city" type="text"></div><div><label class="f" for="c_sqft">Approx. sq ft</label><input id="c_sqft" type="number" inputmode="numeric"></div></div>
+<label class="f">Area</label>
+<div class="chips" id="areas"><label><input type="checkbox" value="Driveway">Driveway</label><label><input type="checkbox" value="Patio">Patio</label><label><input type="checkbox" value="Walkway">Walkway</label><label><input type="checkbox" value="Steps / entry">Steps / entry</label><label><input type="checkbox" value="Pool deck">Pool deck</label></div>
+<input id="c_areaOther" type="text" placeholder="Other area / notes (e.g. 20 x 30 ft driveway + side walkway)" style="margin-top:8px">
+<label class="f">Surface</label>
+<div class="chips" id="surf"><label><input type="checkbox" value="Pavers">Pavers</label><label><input type="checkbox" value="Concrete">Concrete</label><label><input type="checkbox" value="Other">Other</label></div>
+</div>
+
+<div class="card">
+<h2>Scope &amp; price</h2>
+<div class="svc" data-k="clean"><div class="top"><input type="checkbox" aria-label="Deep clean"><b>Deep clean (power wash)</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges, steps and joints detailed; full rinse.</p></div>
+<div class="svc" data-k="sand"><div class="top"><input type="checkbox" aria-label="Re-sand joints"><b>Re-sand joints (pavers)</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Clear old sand and weeds. Once dry, sweep in polymeric sand, compact so it fills every gap, top off and mist to lock it in. Helps stop weeds, ants and shifting.</p></div>
+<div class="svc" data-k="seal"><div class="top"><input type="checkbox" aria-label="Sealer"><b>Sealer</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Applied on a fully dry surface (usually a second visit). Even coats, edges cut in by hand. Brings back color and guards against stains and fading.</p>
+<div class="extra chips"><label><input type="radio" name="finish" value="Natural" checked>Natural</label><label><input type="radio" name="finish" value="Wet look">Wet look</label></div></div>
+<div class="svc" data-k="stain"><div class="top"><input type="checkbox" aria-label="Stain treatment"><b>Stain treatment</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Degreaser or poultice on each oil, rust or grease spot. Most lighten a lot; deep, old stains may not fully disappear.</p>
+<div class="extra"><input id="spots" type="text" placeholder="Which spots / how many (e.g. 3 oil spots on driveway)"></div></div>
+<div class="svc" data-k="special"><div class="top"><input type="checkbox" aria-label="Special or additional"><b>Special / additional</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div>
+<div class="extra" style="margin-left:0"><textarea id="special" placeholder="Describe the extra work"></textarea></div></div>
+<div class="tot"><span>Total</span><span id="total">$0</span></div>
+<div class="warn" id="warn">Total is $1,000 or more. Keep this job under $1,000.</div>
+</div>
+
+<div class="card">
+<h2>Schedule &amp; payment</h2>
+<div class="row"><div><label class="f" for="d1">Start date</label><input id="d1" type="date"></div><div><label class="f" for="d2">Second visit (sand / seal)</label><input id="d2" type="date"></div></div>
+<div class="row"><div><label class="f" for="dep">Deposit</label><input id="dep" type="number" inputmode="decimal" placeholder="$ 0"></div><div><label class="f" for="pay">Paid by</label><select id="pay"><option>Zelle</option><option>Cash</option><option>Check</option><option>Card</option></select></div></div>
+<button class="btn" id="toClient" type="button">Show to client</button>
+<div class="err" id="err1"></div>
+</div>
+</section>
+
+<!-- STEP 2: client reviews & signs -->
+<section id="s2" class="hide">
+<div class="card sum">
+<h2>Service agreement</h2>
+<dl id="sumInfo"></dl>
+<table class="lines" id="sumLines"></table>
+<div class="tot"><span>Total</span><span id="sumTotal"></span></div>
+<div id="sumPay" style="font-size:14px;color:var(--mut)"></div>
+</div>
+<div class="card">
+<h2>Before we arrive</h2>
+<ul class="t"><li>Move cars, furniture and planters off the work area.</li><li>Turn sprinklers off 24 h before and 48 h after.</li><li>We use your outside water spigot.</li><li>Stay off fresh sealer: 24 h on foot, 48–72 h for cars.</li><li>Rain moves sand and sealer to the next dry day.</li></ul>
+<h2 style="margin-top:14px">Terms</h2>
+<ul class="t"><li>The price covers the work listed above. Any change is agreed in writing first.</li><li>Not included unless listed: re-leveling, replacing broken pavers, crack repair.</li><li>Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.</li><li>We walk the job with you at the end. Anything missed in the work area, we fix within 7 days.</li><li>The balance is due the day the work is complete.</li></ul>
+<div class="cancel"><b>Your right to cancel:</b> You may cancel this agreement without penalty within 3 business days after signing (5 if you are 65 or older) by written notice to Revive Culture SoCal, 11150 W Olympic Blvd, Suite 1050, Los Angeles, CA 90064. Any payment made is returned within 10 days.</div>
+</div>
+<div class="card">
+<h2>Sign here</h2>
+<div class="sigbox"><canvas id="sig"></canvas><span class="hint" id="hint">Sign with your finger</span></div>
+<button class="clr" id="clr" type="button">Clear signature</button>
+<label class="f" for="pname">Print name</label><input id="pname" type="text">
+<label class="agree"><input type="checkbox" id="ok"><span>I agree to the work, price and terms above.</span></label>
+<button class="btn" id="signBtn" type="button">Sign agreement</button>
+<button class="btn ghost" id="back" type="button">Back to edit</button>
+<div class="err" id="err2"></div>
+</div>
+</section>
+
+<!-- STEP 3: done -->
+<section id="s3" class="hide">
+<div class="card done">
+<div class="ck"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h2 style="font-size:22px;letter-spacing:0;text-transform:none;color:var(--ink)" id="thx">Thank you!</h2>
+<p style="margin:0;color:var(--mut)">Your agreement is signed. A copy is below.</p>
+<button class="btn" id="shareBtn" type="button">Send / save a copy</button>
+<p class="err" id="msg3" style="color:var(--mut)"></p>
+<img id="outImg" alt="Signed agreement">
+<button class="btn ghost" id="newBtn" type="button">Start a new agreement</button>
+</div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:2});
+const NAMES={clean:'Deep clean (power wash)',sand:'Re-sand joints (pavers)',seal:'Sealer',stain:'Stain treatment',special:'Special / additional'};
+function svcs(){return $$('.svc').map(el=>{const k=el.dataset.k,on=el.querySelector('input[type=checkbox]').checked,price=parseFloat(el.querySelector('.price').value)||0;
+ let name=NAMES[k],desc=el.querySelector('p')?el.querySelector('p').textContent:'';
+ if(k==='seal')name+=' · '+document.querySelector('input[name=finish]:checked').value;
+ if(k==='stain'&&$('#spots').value.trim())desc=$('#spots').value.trim()+'. '+desc;
+ if(k==='special')desc=$('#special').value.trim();
+ return {k,on,price,name,desc}}).filter(s=>s.on)}
+function calc(){$$('.svc').forEach(el=>el.classList.toggle('on',el.querySelector('input[type=checkbox]').checked));
+ const t=svcs().reduce((a,s)=>a+s.price,0);$('#total').textContent=money(t);$('#warn').style.display=t>=1000?'block':'none';return t}
+document.addEventListener('input',e=>{if(e.target.closest('#s1')){if(e.target.classList.contains('price')&&e.target.value)e.target.closest('.svc').querySelector('input[type=checkbox]').checked=true;calc()}});
+document.addEventListener('change',e=>{if(e.target.closest('#s1'))calc()});
+const fmtD=v=>v?new Date(v+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}):'';
+let R=null;
+$('#toClient').onclick=()=>{
+ const err=$('#err1');err.textContent='';
+ const list=svcs();
+ if(!$('#c_name').value.trim()){err.textContent='Add the client name.';return}
+ if(!$('#c_addr').value.trim()){err.textContent='Add the job address.';return}
+ if(!list.length){err.textContent='Check at least one service.';return}
+ if(list.some(s=>!s.price)){err.textContent='Add a price for each checked service.';return}
+ const total=calc(),dep=parseFloat($('#dep').value)||0;
+ const areas=$$('#areas input:checked').map(i=>i.value);if($('#c_areaOther').value.trim())areas.push($('#c_areaOther').value.trim());
+ const now=new Date(),p=n=>String(n).padStart(2,'0');
+ R={no:'RV-'+String(now.getFullYear()).slice(2)+p(now.getMonth()+1)+p(now.getDate())+'-'+p(now.getHours())+p(now.getMinutes()),
+  name:$('#c_name').value.trim(),phone:$('#c_phone').value.trim(),email:$('#c_email').value.trim(),addr:$('#c_addr').value.trim(),city:$('#c_city').value.trim(),
+  sqft:$('#c_sqft').value.trim(),areas:areas.join(', '),surface:$$('#surf input:checked').map(i=>i.value).join(', '),
+  list,total,dep,bal:total-dep,pay:$('#pay').value,d1:fmtD($('#d1').value),d2:fmtD($('#d2').value)};
+ const info=[['Agreement',R.no],['Client',R.name],['Phone',R.phone],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start',R.d1],['Second visit',R.d2]].filter(x=>x[1]);
+ $('#sumInfo').innerHTML=info.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
+ $('#sumLines').innerHTML=list.map(s=>`<tr><td><b>${esc(s.name)}</b><small>${esc(s.desc)}</small></td><td>${money(s.price)}</td></tr>`).join('');
+ $('#sumTotal').textContent=money(total);
+ $('#sumPay').textContent=(dep?`Deposit ${money(dep)} · Balance ${money(R.bal)} due on completion`:`Balance ${money(total)} due on completion`)+` · ${R.pay}`;
+ $('#pname').value=R.name;
+ show('#s2');setTimeout(sizeSig,50);
+};
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function show(id){['#s1','#s2','#s3'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo(0,0)}
+$('#back').onclick=()=>show('#s1');
+/* signature */
+const cv=$('#sig'),g=cv.getContext('2d');let drawing=false,inked=false,last=null;
+function sizeSig(){const r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;g.setTransform(d,0,0,d,0,0);g.lineWidth=2.6;g.lineCap='round';g.lineJoin='round';g.strokeStyle='#14202b';inked=false;$('#hint').style.display=''}
+function pt(e){const r=cv.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+cv.addEventListener('pointerdown',e=>{drawing=true;last=pt(e);cv.setPointerCapture(e.pointerId);$('#hint').style.display='none'});
+cv.addEventListener('pointermove',e=>{if(!drawing)return;const p=pt(e);g.beginPath();g.moveTo(last.x,last.y);g.lineTo(p.x,p.y);g.stroke();last=p;inked=true});
+['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>drawing=false));
+$('#clr').onclick=sizeSig;
+let outURL=null;
+$('#signBtn').onclick=async()=>{
+ const err=$('#err2');err.textContent='';
+ if(!inked){err.textContent='Please sign in the box.';return}
+ if(!$('#pname').value.trim()){err.textContent='Please print your name.';return}
+ if(!$('#ok').checked){err.textContent='Please check the box to agree.';return}
+ R.printed=$('#pname').value.trim();R.signedAt=new Date().toLocaleString('en-US',{dateStyle:'long',timeStyle:'short'});R.sig=cv.toDataURL('image/png');
+ $('#signBtn').disabled=true;
+ try{outURL=await buildImage(R)}catch(e){outURL=null}
+ $('#signBtn').disabled=false;
+ $('#thx').textContent='Thank you, '+R.printed.split(' ')[0]+'!';
+ if(outURL){$('#outImg').src=outURL;$('#outImg').style.display=''}else $('#outImg').style.display='none';
+ $('#msg3').textContent='';show('#s3');
+ try{const h=JSON.parse(localStorage.getItem('rv_agreements')||'[]');h.unshift({no:R.no,name:R.name,addr:R.addr,total:R.total,at:R.signedAt});localStorage.setItem('rv_agreements',JSON.stringify(h.slice(0,50)))}catch(e){}
+};
+function fname(){return 'Revive-'+R.no+'-'+R.name.replace(/[^a-z0-9]+/gi,'-')+'.jpg'}
+function toBlob(u){const s=atob(u.split(',')[1]),a=new Uint8Array(s.length);for(let i=0;i<s.length;i++)a[i]=s.charCodeAt(i);return new Blob([a],{type:'image/jpeg'})}
+$('#shareBtn').onclick=async()=>{
+ const m=$('#msg3');m.textContent='';
+ if(!outURL){m.textContent='Take a screenshot of this screen.';return}
+ const f=new File([toBlob(outURL)],fname(),{type:'image/jpeg'});
+ try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Revive service agreement '+R.no});return}}catch(e){if(e&&e.name==='AbortError')return}
+ try{const a=document.createElement('a');a.href=outURL;a.download=fname();document.body.appendChild(a);a.click();a.remove();m.textContent='Saved. If nothing downloaded, press and hold the image and choose “Save image”.'}
+ catch(e){m.textContent='Press and hold the image and choose “Save image”.'}
+};
+$('#newBtn').onclick=()=>{if(!confirm('Start a new agreement? This clears the form.'))return;location.reload()};
+/* image of the signed agreement */
+function loadImg(src){return new Promise((r,e)=>{const i=new Image();i.onload=()=>r(i);i.onerror=e;i.src=src})}
+function wrap(c,t,x,y,w,lh){const ws=String(t).split(/\s+/);let ln='';for(const wd of ws){if(c.measureText(ln+wd).width>w&&ln){c.fillText(ln.trim(),x,y);y+=lh;ln=''}ln+=wd+' '}if(ln.trim()){c.fillText(ln.trim(),x,y);y+=lh}return y}
+async function buildImage(R){
+ const W=1240,P=70,c=document.createElement('canvas');c.width=W;c.height=3600;const x=c.getContext('2d');
+ x.fillStyle='#fff';x.fillRect(0,0,W,c.height);
+ x.fillStyle='#1f4a3a';x.fillRect(0,0,W,150);
+ x.fillStyle='#fff';x.font='800 54px Arial';x.fillText('REVIVE',P,78);x.font='18px Arial';x.fillStyle='#d5e3dc';x.fillText('CULTURE SOCAL · PAVER & CONCRETE RESTORATION',P,112);
+ x.textAlign='right';x.fillStyle='#fff';x.font='700 30px Arial';x.fillText('SERVICE AGREEMENT',W-P,72);x.font='20px Arial';x.fillStyle='#d5e3dc';x.fillText('No. '+R.no,W-P,108);x.textAlign='left';
+ x.fillStyle='#e8efeb';x.fillRect(0,150,W,44);x.fillStyle='#2c3a34';x.font='18px Arial';x.fillText('11150 W Olympic Blvd, Suite 1050, Los Angeles, CA 90064 · (213) 510-3309 · reviveculturesocal.com',P,179);
+ let y=250;const H=t=>{x.fillStyle='#1f4a3a';x.font='700 20px Arial';x.fillText(t.toUpperCase(),P,y);y+=36};
+ H('Client & property');
+ [['Client',R.name],['Phone',R.phone],['Email',R.email],['Address',[R.addr,R.city].filter(Boolean).join(', ')],['Area',R.areas],['Surface',R.surface],['Approx. size',R.sqft?R.sqft+' sq ft':''],['Start date',R.d1],['Second visit',R.d2]].filter(r=>r[1]).forEach(([k,v])=>{x.fillStyle='#55605a';x.font='22px Arial';x.fillText(k,P,y);x.fillStyle='#1f2723';x.font='24px Arial';y=wrap(x,v,P+210,y,W-2*P-210,32)+6});
+ y+=14;H('Scope of work');
+ for(const s of R.list){x.strokeStyle='#c9d3ce';x.lineWidth=2;x.beginPath();x.moveTo(P,y-26);x.lineTo(W-P,y-26);x.stroke();
+  x.fillStyle='#1f2723';x.font='700 25px Arial';x.fillText(s.name,P,y);x.textAlign='right';x.fillText(money(s.price),W-P,y);x.textAlign='left';y+=32;
+  if(s.desc){x.fillStyle='#55605a';x.font='21px Arial';y=wrap(x,s.desc,P,y,W-2*P-180,29)}y+=24}
+ x.fillStyle='#1f4a3a';x.fillRect(P,y-20,W-2*P,R.dep?128:72);x.fillStyle='#fff';x.font='700 28px Arial';x.fillText('TOTAL',P+24,y+22);x.textAlign='right';x.fillText(money(R.total),W-P-24,y+22);
+ if(R.dep){x.font='22px Arial';x.fillText(money(R.dep),W-P-24,y+60);x.fillText(money(R.bal),W-P-24,y+92);x.textAlign='left';x.fillText('Deposit ('+R.pay+')',P+24,y+60);x.fillText('Balance due on completion',P+24,y+92)}else{x.textAlign='left'}
+ x.textAlign='left';y+=(R.dep?150:94);
+ H('Terms');x.fillStyle='#33403a';x.font='20px Arial';
+ ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Final walk-through together; anything missed in the work area we fix within 7 days. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.','Right to cancel: you may cancel without penalty within 3 business days after signing (5 if you are 65 or older) by written notice to the address above. Any payment made is returned within 10 days.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
+ y+=24;H('Signed');
+ const sg=await loadImg(R.sig);const sc=Math.min(560/sg.width,170/sg.height);x.drawImage(sg,P,y-10,sg.width*sc,sg.height*sc);y+=170;
+ x.strokeStyle='#1f2723';x.lineWidth=2;x.beginPath();x.moveTo(P,y);x.lineTo(P+560,y);x.stroke();
+ x.fillStyle='#55605a';x.font='19px Arial';x.fillText('Client signature · '+R.printed+' · '+R.signedAt,P,y+28);y+=70;
+ const o=document.createElement('canvas');o.width=W;o.height=y+30;o.getContext('2d').drawImage(c,0,0);
+ return o.toDataURL('image/jpeg',0.9);
+}
+calc();
+</script>
+</body>
+</html>
