@@ -261,22 +261,22 @@ async function buildImage(R){
  return o.toDataURL('image/jpeg',0.9);
 }
 const PRESETS={
- 'pool-1884':{sqft:'1884',areas:[],surf:['Concrete'],
+ 'pool-1884':{client:{name:'Kathy Rezaii',email:'kathyrezaii@gmail.com',phone:'(310) 925-7374',addr:'23278 Park Basilico',city:'Calabasas, CA 91302'},sqft:'1884',areas:[],surf:['Concrete'],
   other:'Whole front and backyard: front entry pathway, driveway, side entrance and all backyard stamped concrete (approx. 1,884 sq ft)',
   svc:{clean:1800,special:0},
   cleanDesc:'Power wash approx. 1,884 sq ft across the whole front and backyard: front entry pathway, driveway, side entrance and all backyard stamped concrete. Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges and steps detailed; full rinse.',
   special:'Extra walls around the backyard power washed. Pool tiles cleaned. Gaps under the concrete slab behind the pool filled.',
   note:'One-time discount: $1,800 (regular price $2,800).',
-  intro:'Here is the full plan for your property: a deep clean of about 1,884 sq ft across the whole front and backyard, including the entry pathway and the extra walls, plus the pool tiles and the gaps under the slab behind the pool. With a one-time discount, the full job is $1,800 instead of $2,800. Sign at the bottom to lock it in.'}
+  intro:'Hi Kathy, here is the full plan for your property: a deep clean of about 1,884 sq ft across the whole front and backyard, including the entry pathway and the extra walls, plus the pool tiles and the gaps under the slab behind the pool. With a one-time discount, the full job is $1,800 instead of $2,800. Sign at the bottom to lock it in.'}
 };
 (function(){const k=new URLSearchParams(location.search).get('job'),P=PRESETS[k];if(!P)return;
- $('#c_sqft').value=P.sqft;P.areas.forEach(v=>{const i=$(`#areas input[value="${v}"]`);if(i)i.checked=true});P.surf.forEach(v=>{const i=$(`#surf input[value="${v}"]`);if(i)i.checked=true});
+ $('#c_sqft').value=P.sqft;const C=P.client;if(C){$('#c_name').value=C.name;$('#c_email').value=C.email||'';$('#c_phone').value=C.phone||'';$('#c_addr').value=C.addr;$('#c_city').value=C.city||''}P.areas.forEach(v=>{const i=$(`#areas input[value="${v}"]`);if(i)i.checked=true});P.surf.forEach(v=>{const i=$(`#surf input[value="${v}"]`);if(i)i.checked=true});
  $('#c_areaOther').value=P.other;
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
  if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;
  if(new URLSearchParams(location.search).get('client')==='1'){CLIENT=true;
-  $('#c_name').value='Client';$('#c_addr').value='—';
+  if(C){$('#k_name').value=C.name;$('#k_phone').value=C.phone||'';$('#k_addr').value=[C.addr,C.city].filter(Boolean).join(', ');$('#pname').value=C.name}else{$('#c_name').value='Client';$('#c_addr').value='—'}
   $('#cIntro').style.display='';$('#cIntroTxt').textContent=P.intro||'';$('#back').style.display='none';
   if(P.options){$('#optBox').innerHTML='<div class="chips" style="flex-direction:column;align-items:stretch">'+P.options.map((o,i)=>`<label style="border-radius:12px;padding:12px;justify-content:space-between"><span style="display:flex;gap:8px;align-items:center"><input type="radio" name="opt" value="${i}" ${i?'':'checked'}>${o.label}</span><b>${money(o.price)}</b></label>`).join('')+'</div>';
    const pick=()=>{const o=P.options[+document.querySelector('input[name=opt]:checked').value];$('.svc[data-k="clean"] .price').value=o.price;$('#pnote').value=o.note;calc();render(false)};
