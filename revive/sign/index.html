@@ -83,7 +83,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <div class="svc" data-k="clean"><div class="top"><input type="checkbox" aria-label="Deep clean"><b>Deep clean (power wash)</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges, steps and joints detailed; full rinse.</p></div>
 <div class="svc" data-k="sand"><div class="top"><input type="checkbox" aria-label="Re-sand joints"><b>Re-sand joints (pavers)</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Clear old sand and weeds. Once dry, sweep in polymeric sand, compact so it fills every gap, top off and mist to lock it in. Helps stop weeds, ants and shifting.</p></div>
 <div class="svc" data-k="seal"><div class="top"><input type="checkbox" aria-label="Sealer"><b>Sealer</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Applied on a fully dry surface (usually a second visit). Even coats, edges cut in by hand. Brings back color and guards against stains and fading.</p>
-<div class="extra chips"><label><input type="radio" name="finish" value="Natural" checked>Natural</label><label><input type="radio" name="finish" value="Wet look">Wet look</label></div></div>
+<div class="extra chips"><label><input type="radio" name="finish" value="Natural" checked>Natural</label><label><input type="radio" name="finish" value="Wet look">Wet look</label><label><input type="radio" name="finish" value="Clear">Clear</label></div></div>
 <div class="svc" data-k="stain"><div class="top"><input type="checkbox" aria-label="Stain treatment"><b>Stain treatment</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div><p>Degreaser or poultice on each oil, rust or grease spot. Most lighten a lot; deep, old stains may not fully disappear.</p>
 <div class="extra"><input id="spots" type="text" placeholder="Which spots / how many (e.g. 3 oil spots on driveway)"></div></div>
 <div class="svc" data-k="special"><div class="top"><input type="checkbox" aria-label="Special or additional"><b>Special / additional</b><input class="price" type="number" inputmode="decimal" placeholder="$"></div>
@@ -261,6 +261,15 @@ async function buildImage(R){
  return o.toDataURL('image/jpeg',0.9);
 }
 const PRESETS={
+ 'tim-driveway':{client:{name:'Tim',addr:'12632 Flomar Dr',city:'Whittier, CA 90602'},sqft:'496',areas:[],surf:['Concrete'],
+  other:'Driveway, 16 x 31 ft (approx. 496 sq ft)',finish:'Clear',
+  svc:{clean:799,stain:0,seal:0},
+  cleanDesc:'Deep clean of the whole driveway, 16 x 31 ft (approx. 496 sq ft). Pre-treat dirt and grime, then clean with a commercial surface cleaner for an even finish, no stripes. Edges detailed; full rinse.',
+  spots:'Oil and tire stains on the driveway',
+  note:'Start-this-week price: $799 (regular price $850). Work starts by Saturday, November 28.',
+  intro:'Hi Tim, here is the plan for your driveway: a deep clean, oil stain treatment and a clear sealer to protect it, about 496 sq ft (16 x 31 ft). Pick your start option, then sign at the bottom to lock it in.',
+  options:[{label:'Start this week (by Sat, Nov 28)',price:799,note:'Start-this-week price: $799 (regular price $850). Work starts by Saturday, November 28.'},
+           {label:'Start at a later date',price:850,note:'Regular price: $850. Start date set together.'}]},
  'pool-1884':{client:{name:'Kathy Rezaii',email:'kathyrezaii@gmail.com',phone:'(310) 925-7374',addr:'23278 Park Basilico',city:'Calabasas, CA 91302'},sqft:'1884',areas:[],surf:['Concrete'],
   other:'Whole front and backyard: front entry pathway, driveway, side entrance and all backyard stamped concrete (approx. 1,884 sq ft)',
   svc:{clean:1800,special:0},
@@ -274,6 +283,8 @@ const PRESETS={
  $('#c_areaOther').value=P.other;
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
+ if(P.finish){const r=document.querySelector(`input[name=finish][value="${P.finish}"]`);if(r)r.checked=true}
+ if(P.spots)$('#spots').value=P.spots;
  if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;
  if(new URLSearchParams(location.search).get('client')==='1'){CLIENT=true;
   if(C){$('#k_name').value=C.name;$('#k_phone').value=C.phone||'';$('#k_addr').value=[C.addr,C.city].filter(Boolean).join(', ');$('#pname').value=C.name}else{$('#c_name').value='Client';$('#c_addr').value='—'}
