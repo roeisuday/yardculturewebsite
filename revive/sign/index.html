@@ -262,14 +262,12 @@ async function buildImage(R){
 }
 const PRESETS={
  'pool-1884':{sqft:'1884',areas:[],surf:['Concrete'],
-  other:'Front entry walkway, driveway, side entrance and all backyard stamped concrete (approx. 1,884 sq ft)',
-  svc:{clean:2200,special:0},
-  cleanDesc:'Power wash approx. 1,884 sq ft: front entry walkway, driveway, side entrance and all backyard stamped concrete. Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges and steps detailed; full rinse.',
-  special:'Pool tiles cleaned. Light power wash of the walls around the backyard work area. Fill the gaps under the concrete slab behind the pool.',
-  note:'Regular price $2,800. Your price is $2,200 when the work starts this week (by Saturday, November 28).',
-  intro:'Here is the full plan for your property: a deep clean of about 1,884 sq ft of concrete, plus the pool tiles, the walls around the backyard and the gaps under the slab behind the pool. Pick your start option, then sign at the bottom to lock it in.',
-  options:[{label:'Start this week (by Sat, Nov 28)',price:2200,note:'Start-this-week price: $2,200 (regular price $2,800). Work starts by Saturday, November 28.'},
-           {label:'Start at a later date',price:2800,note:'Regular price: $2,800. Start date set together.'}]}
+  other:'Whole front and backyard: front entry pathway, driveway, side entrance and all backyard stamped concrete (approx. 1,884 sq ft)',
+  svc:{clean:1800,special:0},
+  cleanDesc:'Power wash approx. 1,884 sq ft across the whole front and backyard: front entry pathway, driveway, side entrance and all backyard stamped concrete. Pre-treat dirt, moss and algae, then clean with a commercial surface cleaner for an even finish. Edges and steps detailed; full rinse.',
+  special:'Extra walls around the backyard power washed. Pool tiles cleaned. Gaps under the concrete slab behind the pool filled.',
+  note:'One-time discount: $1,800 (regular price $2,800).',
+  intro:'Here is the full plan for your property: a deep clean of about 1,884 sq ft across the whole front and backyard, including the entry pathway and the extra walls, plus the pool tiles and the gaps under the slab behind the pool. With a one-time discount, the full job is $1,800 instead of $2,800. Sign at the bottom to lock it in.'}
 };
 (function(){const k=new URLSearchParams(location.search).get('job'),P=PRESETS[k];if(!P)return;
  $('#c_sqft').value=P.sqft;P.areas.forEach(v=>{const i=$(`#areas input[value="${v}"]`);if(i)i.checked=true});P.surf.forEach(v=>{const i=$(`#surf input[value="${v}"]`);if(i)i.checked=true});
