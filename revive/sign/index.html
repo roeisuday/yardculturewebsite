@@ -122,18 +122,15 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <h2>Before we arrive</h2>
 <ul class="t"><li>Move cars, furniture and planters off the work area.</li><li>Turn sprinklers off 24 h before and 48 h after.</li><li>We use your outside water spigot.</li><li>Stay off fresh sealer: 24 h on foot, 48–72 h for cars.</li><li>Rain moves sand and sealer to the next dry day.</li></ul>
 <h2 style="margin-top:14px">Terms</h2>
-<ul class="t"><li>The price covers the work listed above. Any change is agreed in writing first.</li><li>Not included unless listed: re-leveling, replacing broken pavers, crack repair.</li><li>Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.</li><li>Results can't be guaranteed. Stain removal and how clean a surface gets depend on its age and condition; some stains only lighten.</li><li>5-day labor guarantee: tell us within 5 days of completion about anything missed in the work area and we'll fix it. It doesn't cover misuse, new stains or damage, or rain, weather and other natural causes.</li><li>The balance is due the day the work is complete.</li></ul>
+<ul class="t"><li>The price covers the work listed above. Any change is agreed in writing first.</li><li>Not included unless listed: re-leveling, replacing broken pavers, crack repair.</li><li>Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.</li><li>Cancellations are accepted only before work starts.</li><li>Results can't be guaranteed. Stain removal and how clean a surface gets depend on its age and condition; some stains only lighten.</li><li>5-day labor guarantee: tell us within 5 days of completion about anything missed in the work area and we'll fix it. It doesn't cover misuse, new stains or damage, or rain, weather and other natural causes.</li><li>The balance is due the day the work is complete.</li></ul>
 </div>
 <div class="card">
 <h2>Sign here</h2>
 <div class="sigbox"><canvas id="sig"></canvas><span class="hint" id="hint">Sign with your finger</span></div>
 <button class="clr" id="clr" type="button">Clear signature</button>
-<label class="f" for="pname">Print name</label><input id="pname" type="text">
-<p id="cxStmt" style="font-weight:700;font-size:13px;margin:8px 0 2px;color:#5c6166"></p>
-<div style="font-size:12px;color:#8a8f94;display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:5px;align-items:center"><input type="checkbox" id="senior" style="width:14px;height:14px">65 or older</label><span id="cxDates"></span>
-<details><summary style="cursor:pointer">Notice of cancellation</summary><div id="noticeTxt" style="margin-top:6px"></div></details></div>
-<label class="agree"><input type="checkbox" id="ok"><span>I agree to the work, price and terms above.</span></label>
-<button class="btn" id="signBtn" type="button">Sign agreement</button>
+<input id="pname" type="hidden">
+<p style="font-size:14px;color:#5c6166;margin:10px 0 0">By tapping below you agree to the work, price and terms above.</p>
+<button class="btn" id="signBtn" type="button">Agree &amp; sign</button>
 <button class="btn ghost" id="back" type="button">Back to edit</button>
 <div class="err" id="err2"></div>
 </div>
@@ -193,7 +190,7 @@ function render(fromRoy){
  if(fromRoy){$('#pname').value=R.name;show('#s2');setTimeout(sizeSig,50)}
 }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-function show(id){['#s1','#s2','#s3'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo(0,0);if(id==='#s2')updCx()}
+function show(id){['#s1','#s2','#s3'].forEach(s=>$(s).classList.toggle('hide',s!==id));window.scrollTo(0,0);}
 $('#back').onclick=()=>show('#s1');
 /* cancellation period: business days = every day except Sundays and state holidays */
 function nthDow(y,m,dow,n){const d=new Date(y,m,1);let c=0;while(true){if(d.getDay()===dow&&++c===n)return d.toDateString();d.setDate(d.getDate()+1)}}
@@ -209,7 +206,7 @@ function noticeText(c){return `NOTICE OF CANCELLATION\nDate of transaction: ${c.
 function updCx(){const c=cx();$('#cxStmt').textContent=`You, the buyer, may cancel this transaction at any time prior to midnight of the ${c.word} business day after the date of this transaction. See the attached notice of cancellation form for an explanation of this right.`;
  $('#cxDates').textContent=`Work starts on or after ${c.start}.`;
  $('#noticeTxt').innerText=noticeText(c)}
-document.addEventListener('change',e=>{if(e.target.id==='senior')updCx()});
+
 /* signature */
 const cv=$('#sig'),g=cv.getContext('2d');let drawing=false,inked=false,last=null;
 function sizeSig(){const r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;g.setTransform(d,0,0,d,0,0);g.lineWidth=2.6;g.lineCap='round';g.lineJoin='round';g.strokeStyle='#14202b';inked=false;$('#hint').style.display=''}
@@ -225,9 +222,7 @@ $('#signBtn').onclick=async()=>{
   R.name=n;R.addr=a;R.city='';R.phone=$('#k_phone').value.trim();if(!$('#pname').value.trim())$('#pname').value=n;
   const now=new Date(),p=v=>String(v).padStart(2,'0');R.no='RV-'+String(now.getFullYear()).slice(2)+p(now.getMonth()+1)+p(now.getDate())+'-'+p(now.getHours())+p(now.getMinutes())}
  if(!inked){err.textContent='Please sign in the box.';return}
- if(!$('#pname').value.trim()){err.textContent='Please print your name.';return}
- if(!$('#ok').checked){err.textContent='Please check the box to agree.';return}
- R.printed=$('#pname').value.trim();R.cx=cx(new Date());R.signedAt=new Date().toLocaleString('en-US',{dateStyle:'long',timeStyle:'short'});R.sig=cv.toDataURL('image/png');
+ R.printed=$('#pname').value.trim()||R.name;R.signedAt=new Date().toLocaleString('en-US',{dateStyle:'long',timeStyle:'short'});R.sig=cv.toDataURL('image/png');
  $('#signBtn').disabled=true;
  try{outURL=await buildImage(R)}catch(e){outURL=null}
  $('#signBtn').disabled=false;
@@ -269,18 +264,11 @@ async function buildImage(R){
  x.textAlign='left';y+=(R.dep?150:94);
  if(R.note){x.fillStyle='#2f3337';x.font='700 22px Arial';y=wrap(x,R.note,P,y,W-2*P,30)+20}
  H('Terms');x.fillStyle='#33403a';x.font='20px Arial';
- ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Results can\'t be guaranteed. Stain removal and how clean a surface gets depend on its age and condition; some stains only lighten.','5-day labor guarantee: tell us within 5 days of completion about anything missed in the work area and we\'ll fix it. It doesn\'t cover misuse, new stains or damage, or rain, weather and other natural causes. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
+ ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Cancellations are accepted only before work starts.','Results can\'t be guaranteed. Stain removal and how clean a surface gets depend on its age and condition; some stains only lighten.','5-day labor guarantee: tell us within 5 days of completion about anything missed in the work area and we\'ll fix it. It doesn\'t cover misuse, new stains or damage, or rain, weather and other natural causes. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
  y+=24;H('Signed');
  const sg=await loadImg(R.sig);const sc=Math.min(560/sg.width,170/sg.height);x.drawImage(sg,P,y-10,sg.width*sc,sg.height*sc);y+=170;
  x.strokeStyle='#1f2723';x.lineWidth=2;x.beginPath();x.moveTo(P,y);x.lineTo(P+560,y);x.stroke();
  x.fillStyle='#55605a';x.font='19px Arial';x.fillText('Client signature · '+R.printed+' · '+R.signedAt,P,y+28);y+=70;
- x.fillStyle='#5c6166';x.font='700 17px Arial';y=wrap(x,'You, the buyer, may cancel this transaction at any time prior to midnight of the '+R.cx.word+' business day after the date of this transaction. See the attached notice of cancellation form for an explanation of this right.',P,y,W-2*P,26)+6;
- y+=14;
- x.setLineDash([6,6]);x.strokeStyle='#c4c8cc';x.lineWidth=1;x.beginPath();x.moveTo(P,y);x.lineTo(W-P,y);x.stroke();x.setLineDash([]);y+=30;
- x.fillStyle='#8a8f94';x.font='700 13px Arial';x.fillText('NOTICE OF CANCELLATION',P,y);y+=19;
- x.font='13px Arial';const nt=noticeText(R.cx).split('\n').slice(1);
- for(const ln of nt){y=wrap(x,ln,P,y,W-2*P,17)+2}
- y+=6;
  const o=document.createElement('canvas');o.width=W;o.height=y+30;o.getContext('2d').drawImage(c,0,0);
  return o.toDataURL('image/jpeg',0.9);
 }
