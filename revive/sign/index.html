@@ -55,6 +55,11 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 .done .ck{width:64px;height:64px;border-radius:50%;background:var(--a);color:#fff;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
 #outImg{width:100%;border:1px solid var(--line);border-radius:10px;margin-top:12px;-webkit-touch-callout:default}
 .hide{display:none}
+#gal img{width:100%;display:block;border-radius:10px;object-fit:cover}
+#gal .hero{aspect-ratio:4/3;margin-bottom:8px}
+#gal .row4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+#gal .row4 img{aspect-ratio:3/4}
+.badge{display:inline-block;background:var(--a);color:#1d1f21;font-weight:700;font-size:12px;border-radius:999px;padding:3px 10px;margin-left:6px}
 .top-note{font-size:13px;color:var(--mut);margin:4px 2px}
 </style>
 </head>
@@ -104,7 +109,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 
 <!-- STEP 2: client reviews & signs -->
 <section id="s2" class="hide">
-<div class="card" id="cIntro" style="display:none"><h2>Your proposal</h2><p style="margin:0 0 6px" id="cIntroTxt"></p>
+<div class="card" id="cIntro" style="display:none"><div id="gal"></div><h2>Your proposal</h2><p style="margin:0 0 6px" id="cIntroTxt"></p>
 <div id="optBox"></div>
 <label class="f" for="k_name">Your name *</label><input id="k_name" type="text" autocomplete="name">
 <label class="f" for="k_phone">Phone</label><input id="k_phone" type="tel" autocomplete="tel">
@@ -158,6 +163,8 @@ function svcs(){return $$('.svc').map(el=>{const k=el.dataset.k,on=el.querySelec
  if(k==='seal')name+=' · '+document.querySelector('input[name=finish]:checked').value;
  if(k==='stain'&&$('#spots').value.trim())desc=$('#spots').value.trim()+'. '+desc;
  if(k==='special')desc=$('#special').value.trim();
+ if(k==='special'&&window.SPNAME)name=window.SPNAME;
+ if(k==='clean'&&window.CLNAME)name=window.CLNAME;
  return {k,on,price,name,desc}}).filter(s=>s.on)}
 function calc(){$$('.svc').forEach(el=>el.classList.toggle('on',el.querySelector('input[type=checkbox]').checked));
  const t=svcs().reduce((a,s)=>a+s.price,0);$('#total').textContent=money(t);$('#warn').style.display=t>=1000?'block':'none';return t}
@@ -273,6 +280,17 @@ async function buildImage(R){
  return o.toDataURL('image/jpeg',0.9);
 }
 const PRESETS={
+ 'angeles-4000':{client:{name:'Angeles Ale',addr:'9814 Lesterford Ave',city:'Downey, CA 90240'},sqft:'4000',areas:[],surf:['Concrete'],
+  other:'Front and backyard concrete: pool deck, patio, walkways, entry and driveway (approx. 4,000 sq ft)',
+  svc:{clean:3899,special:0},
+  cleanDesc:'Deep clean of approx. 4,000 sq ft of concrete with a commercial-grade power wash machine and surface cleaner: pool deck, patio, walkways, front entry and driveway. Pre-treat dirt, algae and grime, even finish with no stripes, edges and borders detailed, full rinse. About 5 days of work.',
+  spName:'Our gift: block wall & house walls',clName:'Deep clean · commercial-grade power wash',
+  special:'Block walls and house walls cleaned (soft wash), included at no charge.',
+  until:'2026-12-04',after:4750,
+  note:'Book by Friday, December 4: $3,899 (regular price $4,750).',
+  noteAfter:'Regular price: $4,750.',
+  photos:['img/angeles-1.jpg','img/angeles-2.jpg','img/angeles-3.jpg','img/angeles-4.jpg','img/angeles-5.jpg'],
+  intro:'Hi Angeles, here is the plan for your property: a full deep clean of about 4,000 sq ft of concrete with a commercial-grade power wash machine, front to back, plus your block walls and house walls cleaned as our gift. About 5 days of work. Sign at the bottom to lock in your price.'},
  'tim-driveway':{client:{name:'Tim',addr:'12632 Flomar Dr',city:'Whittier, CA 90602'},sqft:'496',areas:[],surf:['Concrete'],
   other:'Driveway, 16 x 31 ft (approx. 496 sq ft)',finish:'Clear',
   svc:{clean:799,stain:0,seal:0},
@@ -295,6 +313,9 @@ const PRESETS={
  $('#c_areaOther').value=P.other;
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
+ if(P.spName)window.SPNAME=P.spName;if(P.clName)window.CLNAME=P.clName;
+ if(P.until&&new Date()>new Date(P.until+'T23:59:59')){$('.svc[data-k="clean"] .price').value=P.after;$('#pnote').value=P.noteAfter||''}
+ if(P.photos){$('#gal').innerHTML=`<img class="hero" src="${P.photos[0]}" alt="Your property">`+(P.photos.length>1?`<div class="row4">${P.photos.slice(1,5).map(u=>`<img src="${u}" alt="Your property">`).join('')}</div>`:'')}
  if(P.finish){const r=document.querySelector(`input[name=finish][value="${P.finish}"]`);if(r)r.checked=true}
  if(P.spots)$('#spots').value=P.spots;
  if(P.special)$('#special').value=P.special;if(P.note)$('#pnote').value=P.note;
