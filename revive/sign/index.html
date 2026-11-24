@@ -286,11 +286,11 @@ const PRESETS={
   cleanDesc:'Deep clean of approx. 4,000 sq ft of concrete with a commercial-grade power wash machine and surface cleaner: pool deck, patio, walkways, front entry and driveway. Pre-treat dirt, algae and grime, even finish with no stripes, edges and borders detailed, full rinse. About 5 days of work.',
   spName:'Our gift: block wall & house walls',clName:'Deep clean · commercial-grade power wash',
   special:'Block walls and house walls cleaned (soft wash), included at no charge.',
-  until:'2026-12-04',after:4750,
-  note:'Book by Friday, December 4: $3,899 (regular price $4,750).',
-  noteAfter:'Regular price: $4,750.',
+  note:'Regular price: $4,750.',
+  options:[{label:'Regular price',price:4750,note:'Regular price: $4,750. Start date set together.'},
+           {label:'Start before Dec 4 (discount)',price:3899,until:'2026-12-03',note:'Start-before-December-4 discount: $3,899 (regular price $4,750). Work starts before Friday, December 4.'}],
   photos:['img/angeles-1.jpg','img/angeles-2.jpg','img/angeles-3.jpg','img/angeles-4.jpg','img/angeles-5.jpg'],
-  intro:'Hi Angeles, here is the plan for your property: a full deep clean of about 4,000 sq ft of concrete with a commercial-grade power wash machine, front to back, plus your block walls and house walls cleaned as our gift. About 5 days of work. Sign at the bottom to lock in your price.'},
+  intro:'Hi Angeles, here is the plan for your property: a full deep clean of about 4,000 sq ft of concrete with a commercial-grade power wash machine, front to back, plus your block walls and house walls cleaned as our gift. About 5 days of work. The regular price is $4,750, and if we start before December 4 you get it for $3,899. Pick your option and sign at the bottom.'},
  'tim-driveway':{client:{name:'Tim',addr:'12632 Flomar Dr',city:'Whittier, CA 90602'},sqft:'496',areas:[],surf:['Concrete'],
   other:'Driveway, 16 x 31 ft (approx. 496 sq ft)',finish:'Clear',
   svc:{clean:799,stain:0,seal:0},
@@ -313,6 +313,7 @@ const PRESETS={
  $('#c_areaOther').value=P.other;
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
+ if(P.options)P.options=P.options.filter(o=>!o.until||new Date()<=new Date(o.until+'T23:59:59'));
  if(P.spName)window.SPNAME=P.spName;if(P.clName)window.CLNAME=P.clName;
  if(P.until&&new Date()>new Date(P.until+'T23:59:59')){$('.svc[data-k="clean"] .price').value=P.after;$('#pnote').value=P.noteAfter||''}
  if(P.photos){$('#gal').innerHTML=`<img class="hero" src="${P.photos[0]}" alt="Your property">`+(P.photos.length>1?`<div class="row4">${P.photos.slice(1,5).map(u=>`<img src="${u}" alt="Your property">`).join('')}</div>`:'')}
