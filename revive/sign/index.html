@@ -123,16 +123,15 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <ul class="t"><li>Move cars, furniture and planters off the work area.</li><li>Turn sprinklers off 24 h before and 48 h after.</li><li>We use your outside water spigot.</li><li>Stay off fresh sealer: 24 h on foot, 48–72 h for cars.</li><li>Rain moves sand and sealer to the next dry day.</li></ul>
 <h2 style="margin-top:14px">Terms</h2>
 <ul class="t"><li>The price covers the work listed above. Any change is agreed in writing first.</li><li>Not included unless listed: re-leveling, replacing broken pavers, crack repair.</li><li>Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.</li><li>We walk the job with you at the end. Anything missed in the work area, we fix within 7 days.</li><li>The balance is due the day the work is complete.</li></ul>
-<div class="cancel"><b>Your right to cancel</b><br>You can cancel within 3 business days of signing (5 if you are 65 or older), for any reason, by written notice. Business days count every day except Sundays and holidays.<br><span id="cxDates"></span>
-<details style="margin-top:8px"><summary style="font-weight:600;cursor:pointer">Read the Notice of Cancellation</summary><div id="noticeTxt" style="margin-top:8px;font-size:13px"></div></details></div>
 </div>
 <div class="card">
 <h2>Sign here</h2>
 <div class="sigbox"><canvas id="sig"></canvas><span class="hint" id="hint">Sign with your finger</span></div>
 <button class="clr" id="clr" type="button">Clear signature</button>
 <label class="f" for="pname">Print name</label><input id="pname" type="text">
-<label class="agree"><input type="checkbox" id="senior"><span>I am 65 or older</span></label>
-<p id="cxStmt" style="font-weight:700;font-size:14px;margin:6px 0"></p>
+<p id="cxStmt" style="font-weight:700;font-size:13px;margin:8px 0 2px;color:#5c6166"></p>
+<div style="font-size:12px;color:#8a8f94;display:flex;gap:10px;align-items:center;flex-wrap:wrap"><label style="display:flex;gap:5px;align-items:center"><input type="checkbox" id="senior" style="width:14px;height:14px">65 or older</label><span id="cxDates"></span>
+<details><summary style="cursor:pointer">Notice of cancellation</summary><div id="noticeTxt" style="margin-top:6px"></div></details></div>
 <label class="agree"><input type="checkbox" id="ok"><span>I agree to the work, price and terms above.</span></label>
 <button class="btn" id="signBtn" type="button">Sign agreement</button>
 <button class="btn ghost" id="back" type="button">Back to edit</button>
@@ -208,7 +207,7 @@ function cx(at){const sen=$('#senior').checked,n=sen?5:3,dl=addBiz(at||new Date(
  return {sen,n,word:sen?'fifth':'third',num:sen?'five':'three',tx:longD(at||new Date()),dl:longD(dl),start:longD(st)}}
 function noticeText(c){return `NOTICE OF CANCELLATION\nDate of transaction: ${c.tx}\nYou may cancel this transaction, without any penalty or obligation, within ${c.num} business days from the above date. If you cancel, any property traded in, any payments made by you under the contract or sale, and any negotiable instrument executed by you will be returned within 10 days following receipt by the seller of your cancellation notice, and any security interest arising out of the transaction will be canceled. If you cancel, you must make available to the seller at your residence, in substantially as good condition as when received, any goods delivered to you under this contract or sale, or you may, if you wish, comply with the instructions of the seller regarding the return shipment of the goods at the seller's expense and risk. If you do make the goods available to the seller and the seller does not pick them up within 20 days of the date of your notice of cancellation, you may retain or dispose of the goods without any further obligation. If you fail to make the goods available to the seller, or if you agree to return the goods to the seller and fail to do so, then you remain liable for performance of all obligations under the contract. To cancel this transaction, mail or deliver a signed and dated copy of this cancellation notice, or any other written notice, or send a telegram to ${SELLER}, not later than midnight of ${c.dl}.\nI hereby cancel this transaction. Date ______  Buyer's signature ____________`}
 function updCx(){const c=cx();$('#cxStmt').textContent=`You, the buyer, may cancel this transaction at any time prior to midnight of the ${c.word} business day after the date of this transaction. See the attached notice of cancellation form for an explanation of this right.`;
- $('#cxDates').innerHTML=`If you sign today, you can cancel until midnight of <b>${c.dl}</b>. Work starts on or after <b>${c.start}</b>.`;
+ $('#cxDates').textContent=`Work starts on or after ${c.start}.`;
  $('#noticeTxt').innerText=noticeText(c)}
 document.addEventListener('change',e=>{if(e.target.id==='senior')updCx()});
 /* signature */
@@ -275,12 +274,12 @@ async function buildImage(R){
  const sg=await loadImg(R.sig);const sc=Math.min(560/sg.width,170/sg.height);x.drawImage(sg,P,y-10,sg.width*sc,sg.height*sc);y+=170;
  x.strokeStyle='#1f2723';x.lineWidth=2;x.beginPath();x.moveTo(P,y);x.lineTo(P+560,y);x.stroke();
  x.fillStyle='#55605a';x.font='19px Arial';x.fillText('Client signature · '+R.printed+' · '+R.signedAt,P,y+28);y+=70;
- x.fillStyle='#25282b';x.font='700 17px Arial';y=wrap(x,'You, the buyer, may cancel this transaction at any time prior to midnight of the '+R.cx.word+' business day after the date of this transaction. See the attached notice of cancellation form for an explanation of this right.',P,y,W-2*P,26)+6;
- x.fillStyle='#55605a';x.font='16px Arial';y=wrap(x,'Cancellation period ends at midnight of '+R.cx.dl+'. Work starts on or after '+R.cx.start+'.',P,y,W-2*P,26)+30;
+ x.fillStyle='#5c6166';x.font='700 17px Arial';y=wrap(x,'You, the buyer, may cancel this transaction at any time prior to midnight of the '+R.cx.word+' business day after the date of this transaction. See the attached notice of cancellation form for an explanation of this right.',P,y,W-2*P,26)+6;
+ y+=14;
  x.setLineDash([6,6]);x.strokeStyle='#c4c8cc';x.lineWidth=1;x.beginPath();x.moveTo(P,y);x.lineTo(W-P,y);x.stroke();x.setLineDash([]);y+=30;
- x.fillStyle='#6b7075';x.font='700 15px Arial';x.fillText('NOTICE OF CANCELLATION',P,y);y+=22;
- x.font='14px Arial';const nt=noticeText(R.cx).split('\n').slice(1);
- for(const ln of nt){y=wrap(x,ln,P,y,W-2*P,19)+4}
+ x.fillStyle='#8a8f94';x.font='700 13px Arial';x.fillText('NOTICE OF CANCELLATION',P,y);y+=19;
+ x.font='13px Arial';const nt=noticeText(R.cx).split('\n').slice(1);
+ for(const ln of nt){y=wrap(x,ln,P,y,W-2*P,17)+2}
  y+=6;
  const o=document.createElement('canvas');o.width=W;o.height=y+30;o.getContext('2d').drawImage(c,0,0);
  return o.toDataURL('image/jpeg',0.9);
