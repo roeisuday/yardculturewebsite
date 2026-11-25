@@ -123,6 +123,7 @@ ul.t{margin:0;padding-left:18px;font-size:14px;color:#33403a}ul.t li{margin:4px 
 <div id="sumPay" style="font-size:14px;color:var(--mut)"></div>
 <div id="sumNote" class="cancel" style="display:none"></div>
 </div>
+<div class="card" id="approach" style="display:none"><h2>Our approach: wash first, then decide</h2><p style="margin:0;font-size:15px" id="approachTxt"></p></div>
 <div class="card">
 <h2>Before we arrive</h2>
 <ul class="t"><li>Move cars, furniture and planters off the work area.</li><li>Turn sprinklers off 24 h before and 48 h after.</li><li>We use your outside water spigot.</li><li>Stay off fresh sealer: 24 h on foot, 48–72 h for cars.</li><li>Rain moves sand and sealer to the next dry day.</li></ul>
@@ -270,6 +271,7 @@ async function buildImage(R){
  if(R.dep){x.font='22px Arial';x.fillText(money(R.dep),W-P-24,y+60);x.fillText(money(R.bal),W-P-24,y+92);x.textAlign='left';x.fillText('Deposit ('+R.pay+')',P+24,y+60);x.fillText('Balance due on completion',P+24,y+92)}else{x.textAlign='left'}
  x.textAlign='left';y+=(R.dep?150:94);
  if(R.note){x.fillStyle='#2f3337';x.font='700 22px Arial';y=wrap(x,R.note,P,y,W-2*P,30)+20}
+ if(window.APPROACH){H('Our approach');x.fillStyle='#33403a';x.font='20px Arial';y=wrap(x,window.APPROACH,P,y,W-2*P,28)+20}
  H('Terms');x.fillStyle='#33403a';x.font='20px Arial';
  ['The price covers the work listed above. Any change is agreed in writing first.','Not included unless listed: re-leveling, replacing broken pavers, crack repair.','Cleaning can reveal old patches or color differences that dirt was hiding. Wet-look sealer can be slippery when wet.','Cancellations are accepted only before work starts.','Results can\'t be guaranteed. Stain removal and how clean a surface gets depend on its age and condition; some stains only lighten.','5-day labor guarantee: tell us within 5 days of completion about anything missed in the work area and we\'ll fix it. It doesn\'t cover misuse, new stains or damage, or rain, weather and other natural causes. Balance due the day the work is complete.','Client prep: cars and furniture off the area, sprinklers off 24 h before and 48 h after, outside water spigot available. Stay off fresh sealer 24 h on foot, 48–72 h for cars. Rain moves sand and sealer to the next dry day.'].forEach(t=>{x.fillText('•',P,y);y=wrap(x,t,P+22,y,W-2*P-22,28)+6});
  y+=24;H('Signed');
@@ -290,6 +292,7 @@ const PRESETS={
   options:[{label:'Regular price',price:4750,note:'Regular price: $4,750. Start date set together.'},
            {label:'Start before Dec 4 (discount)',price:3899,until:'2026-12-03',note:'Start-before-December-4 discount: $3,899 (regular price $4,750). Work starts before Friday, December 4.'}],
   photos:['img/angeles-1.jpg','img/angeles-2.jpg','img/angeles-3.jpg','img/angeles-4.jpg','img/angeles-5.jpg'],
+  approach:'The professional way to do this is to start with the deep clean and see the results together. Once the surface is clean, we can see what it really needs, like stain treatment, crack repair or sealing, and decide the next step from there. That way you pay only for what your property actually needs, not for work we are not sure about yet.',
   intro:'Hi Angeles, here is the plan for your property: a full deep clean of about 4,000 sq ft of concrete with a commercial-grade power wash machine, front to back, plus your block walls and house walls cleaned as our gift. About 5 days of work. The regular price is $4,750, and if we start before December 4 you get it for $3,899. Pick your option and sign at the bottom.'},
  'tim-driveway':{client:{name:'Tim',addr:'12632 Flomar Dr',city:'Whittier, CA 90602'},sqft:'496',areas:[],surf:['Concrete'],
   other:'Driveway, 16 x 31 ft (approx. 496 sq ft)',finish:'Clear',
@@ -314,6 +317,7 @@ const PRESETS={
  Object.entries(P.svc).forEach(([k,v])=>{const el=$(`.svc[data-k="${k}"]`);el.querySelector('input[type=checkbox]').checked=true;el.querySelector('.price').value=v||''});
  if(P.cleanDesc)$('.svc[data-k="clean"] p').textContent=P.cleanDesc;
  if(P.options)P.options=P.options.filter(o=>!o.until||new Date()<=new Date(o.until+'T23:59:59'));
+ if(P.approach){$('#approach').style.display='';$('#approachTxt').textContent=P.approach;window.APPROACH=P.approach}
  if(P.spName)window.SPNAME=P.spName;if(P.clName)window.CLNAME=P.clName;
  if(P.until&&new Date()>new Date(P.until+'T23:59:59')){$('.svc[data-k="clean"] .price').value=P.after;$('#pnote').value=P.noteAfter||''}
  if(P.photos){$('#gal').innerHTML=`<img class="hero" src="${P.photos[0]}" alt="Your property">`+(P.photos.length>1?`<div class="row4">${P.photos.slice(1,5).map(u=>`<img src="${u}" alt="Your property">`).join('')}</div>`:'')}
